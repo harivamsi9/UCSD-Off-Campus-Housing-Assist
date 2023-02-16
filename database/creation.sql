@@ -11,7 +11,7 @@ create table if not exists student(
 	name varchar(30),
 	email varchar(30),
 	password varchar(30),
-	phone int
+	phone varchar(10)
 );
 
 create table if not exists property(
@@ -32,21 +32,22 @@ create table if not exists favourites(
 );
 
 create table if not exists historicRent(
-	propertyId int primary key references property(propertyId),
+	propertyId int references property(propertyId),
 	dateIni date,
 	dateEnd date,
 	monthlyRent float
 );
 
 create table if not exists review(
-	propertyId int primary key references property(propertyId),
+	propertyId int references property(propertyId),
 	date date,
 	comment varchar(255),
 	rating int
 );
 
 create table if not exists picture(
-	propertyId int primary key references property(propertyId),
-	relativePath varchar(50)
+	propertyId int references property(propertyId),
+	relativePath varchar(50),
+	primary key (propertyId, relativePath)
 );
 
