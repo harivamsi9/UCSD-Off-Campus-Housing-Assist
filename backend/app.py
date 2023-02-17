@@ -1,29 +1,59 @@
 from flask import Flask, redirect, url_for, request, render_template
 import psycopg2
 import psycopg2.extras
-from flask_sqlalchemy import SQLAlchemy
+from config import config
+
 
 app = Flask(__name__, template_folder='templates')
 
+def connect():
+    """ Connect to the PostgreSQL database server """
+    global conn,cur
+    conn,cur = None,None
+    try:
+        # read connection parameters
+        params = config()
+
+        # connect to the PostgreSQL server
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+
+        # create a cursor
+        cur = conn.cursor()
+
+        # alternative:
+        # cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        # execute a statement
+        print('PostgreSQL database version:')
+        cur.execute('SELECT version()')
+
+        # display the PostgreSQL database server version
+        db_version = cur.fetchone()
+        print(db_version)
+
+        # close the communication with the PostgreSQL
+        # cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+
+def closeConn():
+    cur.close()
+    if conn is not None:
+        conn.close()
+        print('Database connection closed.')
+
+
+
 @app.route('/')
+#main page
 def index():
-    conn = psycopg2.connect("postgresql://postgres:1234560@localhost:5432/postgres")
-    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     s = "SELECT * FROM student"
     cur.execute(s) # Execute the SQL
     list_users = cur.fetchall()
-
-    # cur.execute("INSERT INTO table_1 (user_id,password) VALUES ('c',2)")
-    # conn.commit()
-    # flash('Student Added successfully')
-
     return render_template('login.html',list_users = list_users)
 
-
-
-@app.route('/success/<name>')
-def success(name):
-    return 'welcome %s' % name
 
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
@@ -40,17 +70,21 @@ def login():
         user.append(request.args.get('nm3'))
         user.append(request.args.get('pid'))
 
-
-        conn = psycopg2.connect("postgresql://postgres:1234560@localhost:5432/postgres")
-        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cur.execute("INSERT INTO student (studentid,name,email,password,phone) VALUES (%s,%s,%s,%s,%s)",(user[4],user[0],user[1],user[2],user[3]))
         conn.commit()
 
         return redirect(url_for('index',name = user))
 
 if __name__ == '__main__':
+    # connect to database
+    connect()
+
     app.run(
         host='0.0.0.0',
         port=5321,
         debug=True,
-)
+    )
+
+    # close connection
+    closeConn()
+
