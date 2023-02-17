@@ -1,0 +1,13 @@
+{
+    "filters" : {
+        "num_Bedrooms" : 2,
+        "num_Bathrooms" : 2,
+        "price" : 1500,
+        "location" : "La Jolla",
+        "sft" : 700
+    },
+
+    "sort" : {
+        "price" : "low-to-high"
+    }
+}
