@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# UCSD-Off-Campus-Housing-Assist
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to create the DB (manual)
+* Download PostgreSQL v15 from https://www.postgresql.org/download/
+* Install it with default configurations (typical user is "postgres"). Write down the password asked in the process and the port of the database (which could be typically 5432).
+* After installation, open postgres with pgAdmin and connect with your password
+* Connect to server PostgreSQL 15
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48451191/219546831-9ab5ab85-b938-4abc-9e5b-652645117e00.png">
+</p>
 
-## Available Scripts
+* Double click in Databases -> Create -> Database...
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48451191/219547470-7f5b4a7c-db94-43b3-98bb-8ab5c920fe7c.png">
+</p>
 
-In the project directory, you can run:
+* Type the name "G15" and then click "Save"
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48451191/219547670-15956000-3888-4858-842e-b4a8bbbb5122.png">
+</p>
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Right click in the newly created "G15" database, then go to Query Tool
+* Copy paste the ./database/creation.sql file into the query tool and execute it to create all the tables
+* Copy paste the ./database/insertion.sql file into the query tool and execute it to populate all the tables
+* Done!
