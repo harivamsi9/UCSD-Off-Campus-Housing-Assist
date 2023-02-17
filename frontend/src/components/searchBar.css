@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-#applyButton {
+.Button {
     background-color: #4eb5f1;
     color: white;
     padding: 10px 10px;
@@ -22,6 +22,6 @@
     cursor: pointer;
 }
 
-#applyButton:hover {
+.Button:hover {
     background-color: #4095c6;
 }

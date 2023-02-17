@@ -38,13 +38,13 @@ function SearchBar() {
 
 
     return (
-        <div className="searchBar">
+        <div className="searchBar" data-testid="searchBar">
             <Select
                 className="filter"
                 onChange={handleChangeBed}
                 closeMenuOnSelect={true}
                 options={bedOptions}
-                placeholder="Bedroorm">
+                placeholder="Bedroom">
             </Select>
             <Select
                 className="filter"
@@ -81,7 +81,9 @@ function SearchBar() {
                 options={commuteTime}
                 placeholder="Commute time">
             </Select>
-            <button onClick={handleApply} id="applyButton">Apply</button>
+            <button onClick={handleApply} className="Button">Apply</button>
+            <button className="Button">Sort By Price ↑</button>
+            <button className="Button">Sort By Price ↓</button>
         </div>
     );
 }
