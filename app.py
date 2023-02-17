@@ -33,8 +33,20 @@ def login():
         return redirect(url_for('success',name = user))
     else:
         print(2)
-        user = request.args.get('nm')
-        return redirect(url_for('success',name = user))
+        user = []
+        user.append(request.args.get('nm0'))
+        user.append(request.args.get('nm1'))
+        user.append(request.args.get('nm2'))
+        user.append(request.args.get('nm3'))
+        user.append(request.args.get('pid'))
+
+
+        conn = psycopg2.connect("postgresql://postgres:1234560@localhost:5432/postgres")
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cur.execute("INSERT INTO student (studentid,name,email,password,phone) VALUES (%s,%s,%s,%s,%s)",(user[4],user[0],user[1],user[2],user[3]))
+        conn.commit()
+
+        return redirect(url_for('index',name = user))
 
 if __name__ == '__main__':
     app.run(
