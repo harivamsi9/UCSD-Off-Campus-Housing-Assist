@@ -13,7 +13,7 @@ def connect():
     try:
         # read connection parameters
         params = config()
-
+        
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
