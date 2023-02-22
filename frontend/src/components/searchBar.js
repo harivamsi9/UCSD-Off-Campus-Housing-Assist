@@ -1,60 +1,89 @@
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
 import { useState } from 'react'
-import { testValues } from '../data/constant';
 import './searchBar.css';
 
-
-function SearchBar() {
+// Search Bar component containing a number of filters that are dropdown select with options
+function SearchBar(props) {
     const [json, setJson] = useState({});
 
+    var arr = [];
+
     const handleChangeBed = (selected) => {
-        setJson({ ...json, bedroom: selected.value })
+        if (selected != null) {
+            setJson({ ...json, bedroom: selected.value });
+        }
     };
 
     const handleChangeBath = (selected) => {
-        setJson({ ...json, bathroom: selected.value })
+        if (selected != null) {
+            setJson({ ...json, bathroom: selected.value });
+        }
     };
 
     const handleChangeLocation = (selected) => {
-        setJson({ ...json, location: selected.value })
+        if (selected != null) {
+            setJson({ ...json, location: selected.value });
+        }
     };
 
     const handleChangePrice = (selected) => {
-        setJson({ ...json, priceRange: selected.value })
+        if (selected != null) {
+            setJson({ ...json, priceRange: selected.value });
+        }
     };
 
     const handleChangeArea = (selected) => {
-        setJson({ ...json, squareFeet: selected.value })
+        if (selected != null) {
+            setJson({ ...json, squareFeet: selected.value });
+        }
     };
 
     const handleChangeCommute = (selected) => {
-        setJson({ ...json, commuteTime: selected.value })
+        if (selected != null) {
+            setJson({ ...json, commuteTime: selected.value });
+        }
     };
 
-    const handleApply = () => {
-        console.log(json)
+    const handleClear = () => {
+        arr.forEach((a) => {
+            a.clearValue();
+        })
+        setJson({});
     }
 
+    const handleApply = () => {
+        console.log(json);
+        //props.setData(json)
+    }
+
+    // Note: change the placeholder of location to city later
 
     return (
         <div className="searchBar" data-testid="searchBar">
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangeBed}
-                closeMenuOnSelect={true}
                 options={bedOptions}
                 placeholder="Bedroom">
             </Select>
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangeBath}
-                closeMenuOnSelect={true}
                 options={bathOptions}
                 placeholder="Bathroom">
             </Select>
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangePrice}
                 closeMenuOnSelect={true}
                 options={priceOptions}
@@ -62,6 +91,9 @@ function SearchBar() {
             </Select>
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangeLocation}
                 closeMenuOnSelect={true}
                 options={locationOptions}
@@ -69,6 +101,9 @@ function SearchBar() {
             </Select>
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangeArea}
                 closeMenuOnSelect={true}
                 options={squareFeet}
@@ -76,14 +111,20 @@ function SearchBar() {
             </Select>
             <Select
                 className="filter"
+                ref={(ref) => {
+                    arr = [...arr, ref]
+                }}
                 onChange={handleChangeCommute}
                 closeMenuOnSelect={true}
                 options={commuteTime}
                 placeholder="Commute time">
             </Select>
-            <button onClick={handleApply} className="Button">Apply</button>
-            <button className="Button">Sort By Price ↑</button>
-            <button className="Button">Sort By Price ↓</button>
+            <div className="buttonSection">
+                <button onClick={handleApply} className="button">Apply</button>
+                <button className="button" onClick={handleClear}>Clear</button>
+                <button className="button">Sort By Price ↑</button>
+                <button className="button">Sort By Price ↓</button>
+            </div>
         </div>
     );
 }

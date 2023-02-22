@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.displayBlock {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.apartment {
+    width: 320px;
+    margin: 5px;
+}
+
+.aptImage {
+    max-width: 100%;
+}
+
+.information {
+    margin: 5px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.infoSection {
+    background-color: gray;
+    padding: 3px;
+}
