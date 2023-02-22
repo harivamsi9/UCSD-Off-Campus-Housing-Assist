@@ -1,6 +1,6 @@
 # UCSD-Off-Campus-Housing-Assist
 
-## How to create the DB (manual)
+## How to create the DB
 * Download PostgreSQL v15 from https://www.postgresql.org/download/
 * Install it with default configurations (typical user is "postgres"). Write down the password asked in the process and the port of the database (which could be typically 5432).
 * After installation, open postgres with pgAdmin and connect with your password
@@ -23,3 +23,17 @@
 * Copy paste the ./database/creation.sql file into the query tool and execute it to create all the tables
 * Copy paste the ./database/insertion.sql file into the query tool and execute it to populate all the tables
 * Done!
+
+## Create a virtual environment for the backend libraries
+* Update your conda version
+~~~
+conda udpdate conda
+~~~
+* Create an environment called "g15" with the requirements.txt file from the root directory
+~~~
+conda create --name g15 --file requirements.txt
+~~~
+* Activate your environment
+~~~
+conda activate g15
+~~~

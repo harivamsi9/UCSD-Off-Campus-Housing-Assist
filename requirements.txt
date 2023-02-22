@@ -1,0 +1,37 @@
+# packages in environment at C:\Users\Acer\anaconda3\envs\g15:
+#
+# Name                    Version                   Build  Channel
+black                     23.1.0           py39hcbf5309_0    conda-forge
+ca-certificates           2022.12.7            h5b45459_0    conda-forge
+certifi                   2022.12.7          pyhd8ed1ab_0    conda-forge
+click                     8.0.4            py39haa95532_0    anaconda
+colorama                  0.4.6            py39haa95532_0    anaconda
+flask                     2.2.2            py39haa95532_0    anaconda
+importlib-metadata        4.11.3           py39haa95532_0    anaconda
+itsdangerous              2.0.1              pyhd3eb1b0_0    anaconda
+jinja2                    3.1.2            py39haa95532_0    anaconda
+krb5                      1.19.4               h5b6d351_0    anaconda
+libpq                     12.9                 hb652d5d_3    anaconda
+markupsafe                2.1.1            py39h2bbff1b_0    anaconda
+mypy_extensions           1.0.0              pyha770c72_0    conda-forge
+openssl                   1.1.1t               h2bbff1b_0  
+packaging                 23.0               pyhd8ed1ab_0    conda-forge
+pathspec                  0.11.0             pyhd8ed1ab_0    conda-forge
+pip                       22.3.1           py39haa95532_0  
+platformdirs              3.0.0              pyhd8ed1ab_0    conda-forge
+psycopg2                  2.9.3            py39hcd4344a_0    anaconda
+python                    3.9.16               h6244533_0  
+python_abi                3.9                      2_cp39    conda-forge
+setuptools                65.6.3           py39haa95532_0  
+sqlite                    3.40.1               h2bbff1b_0  
+tomli                     2.0.1              pyhd8ed1ab_0    conda-forge
+typing-extensions         4.4.0                hd8ed1ab_0    conda-forge
+typing_extensions         4.4.0              pyha770c72_0    conda-forge
+tzdata                    2022g                h04d1e81_0  
+vc                        14.2                 h21ff451_1  
+vs2015_runtime            14.27.29016          h5e58377_2  
+werkzeug                  2.2.2            py39haa95532_0    anaconda
+wheel                     0.38.4           py39haa95532_0  
+wincertstore              0.2              py39haa95532_2  
+zipp                      3.11.0           py39haa95532_0    anaconda
+zlib                      1.2.13               h8cc25b3_0    anaconda
