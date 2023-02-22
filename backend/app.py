@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, request, render_template
 import psycopg2
 import psycopg2.extras
 from config import config
+from src.JsonTranslator import searchQuery
 
 
 app = Flask(__name__, template_folder="templates")
@@ -21,9 +22,6 @@ def connect():
 
         # create a cursor
         cur = conn.cursor()
-
-        # alternative:
-        # cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
         # execute a statement
         print("PostgreSQL database version:")
@@ -55,7 +53,8 @@ def index():
     return render_template("login.html", list_users=list_users)
 
 
-@app.route("/login", methods=["POST", "GET"])
+# this is a test, need to be deleted later
+@app.route('/login',methods = ['POST', 'GET'])
 def login():
     if request.method == "POST":
         print(1)
@@ -79,13 +78,19 @@ def login():
         return redirect(url_for("index", name=user))
 
 
-if __name__ == "__main__":
+@app.route('/search', methods=["POST"])
+# this method receive filter info from webpage, and sent the query result back in json format
+def search():
+    return searchQuery(cur)
+
+if __name__ == '__main__':
+
     # connect to database
     connect()
 
     app.run(
-        host="0.0.0.0",
-        port=5321,
+        # host='localhost',
+        # port=5000,
         debug=True,
     )
 
