@@ -1,6 +1,7 @@
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
+import { testValues } from '../data/constant';
 import './searchBar.css';
 
 // Search Bar component containing a number of filters that are dropdown select with options
@@ -53,8 +54,27 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        console.log(json);
-        //props.setData(json)
+        // console.log(json)
+
+
+        // need to be integrated into a function
+                fetch("/search", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        data: json
+                    })
+                })
+                    .then(
+                        res => res.json()
+                    ).then(
+                    data => {
+                        console.log(data)
+                    }
+                )
+
     }
 
     // Note: change the placeholder of location to city later

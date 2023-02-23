@@ -1,0 +1,14 @@
+{
+    "filters" : {
+        "bedrooms" : 2,
+        "bathrooms" : 2,
+        "monthly_rent" : 1500,
+        "location" : "La Jolla",
+        "sqft" : 700,
+        "commute_time_to_ucsd" : 30
+    },
+
+    "sort" : {
+        "price" : "low-to-high"
+    }
+}

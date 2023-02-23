@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useEffect, useState } from "react";
 import SearchBar from './components/searchBar';
 import { useState } from 'react'
 import SearchPage from './pages/searchPage';
@@ -10,13 +11,10 @@ function App() {
   const [displayData, setDisplayData] = useState({});
   return (
     <div className="App">
-      {/* <Router>
-        <Routes>
-          <Route exact path="/" component={SearchPage} />
-          <Route exact path="/detail" component={DetailPage} />
-        </Routes>
-      </Router> */}
-      <SearchPage displayData={displayData} />
+        <SearchBar/>
+
+        {/*<p>{data.members}</p>*/}
+
     </div>
   );
 }

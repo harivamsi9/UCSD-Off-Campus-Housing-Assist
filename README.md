@@ -1,6 +1,6 @@
 # UCSD-Off-Campus-Housing-Assist
 
-## How to create the DB (manual)
+## How to create the DB
 * Download PostgreSQL v15 from https://www.postgresql.org/download/
 * Install it with default configurations (typical user is "postgres"). Write down the password asked in the process and the port of the database (which could be typically 5432).
 * After installation, open postgres with pgAdmin and connect with your password
@@ -24,31 +24,16 @@
 * Copy paste the ./database/insertion.sql file into the query tool and execute it to populate all the tables
 * Done!
 
-
-## How to start the frontend app and run tests
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### `install Node.js locally`
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `press a`
-press a under the test runner to run all tests
-
-### `npm install react-router-dom@6`
-install react-router for switching between different pages
-
+## Create a virtual environment for the backend libraries
+* Update your conda version
+~~~
+conda udpdate conda
+~~~
+* Create an environment called "g15" with the requirements.txt file from the root directory
+~~~
+conda create --name g15 --file requirements.txt
+~~~
+* Activate your environment
+~~~
+conda activate g15
+~~~
