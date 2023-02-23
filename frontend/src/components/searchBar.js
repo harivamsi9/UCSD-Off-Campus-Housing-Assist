@@ -1,3 +1,4 @@
+import React from 'react'
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
 import {useEffect, useState} from 'react'
@@ -54,27 +55,9 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        // console.log(json)
-
-
-        // need to be integrated into a function
-                fetch("/search", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        data: json
-                    })
-                })
-                    .then(
-                        res => res.json()
-                    ).then(
-                    data => {
-                        console.log(data)
-                    }
-                )
-
+        console.log(json);
+        //console.log(process.env.REACT_APP_PUBLIC_URL)
+        //props.setData(json)
     }
 
     // Note: change the placeholder of location to city later

@@ -13,11 +13,20 @@
 .apartment {
     width: 320px;
     margin: 5px;
+    display: block;
+    position: relative;
+    box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.apartment:hover {
+    box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s linear;
 }
 
 .aptImage {
     max-width: 100%;
 }
+
 
 .information {
     margin: 5px;
@@ -28,4 +37,31 @@
 .infoSection {
     background-color: gray;
     padding: 3px;
+    position: relative;
+}
+
+.detailLink {
+    text-decoration: none;
+    border: 5px solid #af9a7d;
+    background-color: #af9a7d;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(0);
+    color: #222;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.apartment:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.apartment:hover img {
+    opacity: 0.3;
+}
+
+.apartment:hover .detailLink {
+    transform: translate(-50%, -500%) scale(1);
 }

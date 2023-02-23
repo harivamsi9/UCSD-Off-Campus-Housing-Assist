@@ -24,6 +24,7 @@
 * Copy paste the ./database/insertion.sql file into the query tool and execute it to populate all the tables
 * Done!
 
+<<<<<<< HEAD
 ## Create a virtual environment for the backend libraries
 * Update your conda version
 ~~~
@@ -37,3 +38,36 @@ conda create --name g15 --file requirements.txt
 ~~~
 conda activate g15
 ~~~
+=======
+
+## How to start the frontend app and run tests
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### `install Node.js locally`
+
+In the project directory, you can run:
+
+### `npm install`:
+run this command to install all libraries that frontend need.
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `press a`
+press a under the test runner to run all tests
+
+### `npm install react-router-dom@6`
+install react-router for switching between different pages
+
+>>>>>>> 1acb24583364e3c8f2401d9a65b97f4d105735db
