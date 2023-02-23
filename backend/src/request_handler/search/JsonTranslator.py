@@ -1,6 +1,6 @@
 from flask import request
 import sys
-sys.path.append("..")
+sys.path.append("../../..")
 
 
 
