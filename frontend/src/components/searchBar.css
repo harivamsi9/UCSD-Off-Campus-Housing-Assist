@@ -1,11 +1,10 @@
 .searchBar {
     margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     gap: 5px;
     font-size: 16px;
-    padding: 10px;
 }
 
 .filter {
@@ -14,20 +13,13 @@
     cursor: pointer;
 }
 
-.buttonSection {
-    display: flex;
-    flex-direction: column;
-}
-
-.button {
-    width: 150px;
+.Button {
     background-color: #4eb5f1;
     color: white;
     padding: 10px 10px;
     border-radius: 5px;
     border-color: transparent;
     cursor: pointer;
-    margin: 5px 15px;
 }
 
 .Button:hover {

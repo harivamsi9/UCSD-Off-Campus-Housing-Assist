@@ -24,9 +24,3 @@ test('should render bedroom filter', () => {
     const applyButton = screen.getByTestId("searchBar");
     expect(applyButton).toBeInTheDocument();
 });
-
-test('should render clear button', () => {
-    render(<SearchBar />);
-    const clearButton = screen.getByText("Clear");
-    expect(clearButton).toBeInTheDocument();
-})
