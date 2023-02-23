@@ -1,3 +1,4 @@
+import React from 'react'
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
 import { useState } from 'react'
@@ -54,6 +55,7 @@ function SearchBar(props) {
 
     const handleApply = () => {
         console.log(json);
+        //console.log(process.env.REACT_APP_PUBLIC_URL)
         //props.setData(json)
     }
 

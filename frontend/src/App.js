@@ -8,14 +8,16 @@ import { Route, Router, Routes, Link } from 'react-router-dom'
 function App() {
   // state that let search bar set data
   const [displayData, setDisplayData] = useState({});
+  // initial search page should be replaced with login page
   return (
     <div className="App">
       {/* <Router>
         <Routes>
-          <Route exact path="/" component={SearchPage} />
-          <Route exact path="/detail" component={DetailPage} />
+          <Route path="/detail" element={<DetailPage />} />
         </Routes>
       </Router> */}
+
+      {/* <DetailPage displayData={displayData} /> */}
       <SearchPage displayData={displayData} />
     </div>
   );

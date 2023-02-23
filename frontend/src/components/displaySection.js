@@ -9,6 +9,8 @@ import './displaySection.css'
 // Note: each page shows 10 apartments, need to design a nav bar
 // Problem: 1) nav bar(for the next sprint) 2) design a detail page, but may not be connected with search page(next sprint)
 function DisplaySection() {
+
+
     return (
         <div className="displayBlock">
             {testValues.length > 0 && testValues.map((val, index) => {
