@@ -12,12 +12,10 @@ function App() {
   // initial search page should be replaced with login page
   return (
     <div className="App">
-<<<<<<< HEAD
         <SearchBar/>
 
         {/*<p>{data.members}</p>*/}
 
-=======
       {/* <Router>
         <Routes>
           <Route path="/detail" element={<DetailPage />} />
@@ -26,7 +24,6 @@ function App() {
 
       {/* <DetailPage displayData={displayData} /> */}
       <SearchPage displayData={displayData} />
->>>>>>> 1acb24583364e3c8f2401d9a65b97f4d105735db
     </div>
   );
 }
