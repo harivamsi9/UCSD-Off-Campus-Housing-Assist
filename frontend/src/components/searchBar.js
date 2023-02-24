@@ -3,7 +3,7 @@ import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, com
 import { useState } from 'react'
 import { testValues } from '../data/constant';
 import './searchBar.css';
-
+import {fetch_filter_results} from "./fetch/fetch_api";
 
 function SearchBar() {
     const [json, setJson] = useState({});
@@ -33,7 +33,8 @@ function SearchBar() {
     };
 
     const handleApply = () => {
-        console.log(json)
+        // console.log(json)
+        fetch_filter_results(json)
     }
 
 
