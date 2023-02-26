@@ -149,9 +149,11 @@ def search_property(data,cur):
 # This function will return a list of images info regrading the given property_id
 # param: property_id, cur
 # return: list of images info that can help to find the images in frontend
-def search_images(property_id,cur):
+def search_images(property_id: list[int], cur):
     # TO DO:
 
+    # asdasd
+    
     res = []
     return res
 
