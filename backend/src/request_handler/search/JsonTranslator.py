@@ -1,5 +1,6 @@
 from flask import request
 import sys
+import json
 sys.path.append("../../..")
 
 
@@ -11,6 +12,40 @@ def searchQuery(cur):
     data = request.json.get("data")
     print("received!")
     print(data)
+    property_table = search_property(data,cur)
+
+    # format: {
+    #   property_id -> [
+    #       property:()
+    #       images:[()]
+    #       reviews:[()]
+    #   ]
+    # }
+    search_res = {}
+    for property in property_table:
+        # property_id stores in index 0
+        property_id = property[0]
+
+        value_list = []
+        value_list.append(property)
+        # value_list.append(search_images(property_id,cur))
+        value_list.append(search_review(property_id,cur))
+        search_res[property_id] = value_list
+
+    print(search_res)
+    print(search_res[1][0])
+    print(search_res[1][1])
+
+    # json_object = json.dumps(search_res, indent = 4)
+    # print(json_object)
+
+    return property_table
+
+
+
+# params: JSON, connection to db
+# return: Query result table (list of tuples)
+def search_property(data,cur):
     # Check if 'bedroom' key exists
     if 'bedroom' in data:
         bedroom = data['bedroom'][0]
@@ -110,3 +145,26 @@ def searchQuery(cur):
     res = cur.fetchall()
 
     return res
+
+# This function will return a list of images info regrading the given property_id
+# param: property_id, cur
+# return: list of images info that can help to find the images in frontend
+def search_images(property_id,cur):
+    # TO DO:
+
+    res = []
+    return res
+
+# This function will return a list of reviews regrading the given property_id
+# param: property_id, cur
+# return: list of review (tuple of property_id, date, comment and rating)
+def search_review(property_id,cur):
+    s = "SELECT * FROM review WHERE propertyid = (%s)"
+    cur.execute(s,[property_id]) # Execute the SQL
+    res = cur.fetchall()
+    return res
+
+
+# This function convert the dict to JSON that frontend requires
+def search_assembler(search_res):
+    return 0
