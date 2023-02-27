@@ -162,12 +162,12 @@ def search_images(property_ids: list[int], cur) -> list[tuple]:
 
     Returns:
         - result (list[tuple]): the output of the query. If there is no result, this 
-        will return None
+        will return an empty list
     """
     
     # Check how many ids are being asked
     num_ids = len(property_ids)
-    result = None
+    result = []
     
     if num_ids > 0:
     
@@ -180,7 +180,7 @@ def search_images(property_ids: list[int], cur) -> list[tuple]:
                 query += ","
         query += ")"
         
-        print(f"\nThe query is\n{query}")
+        print(f"\nThe query is\n{query}\n")
         cur.execute(query) # execute the sql
         result = cur.fetchall()
         print(f"output type is {type(result)}")
