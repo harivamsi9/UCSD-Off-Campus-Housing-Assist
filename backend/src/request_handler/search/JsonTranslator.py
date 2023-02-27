@@ -149,13 +149,45 @@ def search_property(data,cur):
 # This function will return a list of images info regrading the given property_id
 # param: property_id, cur
 # return: list of images info that can help to find the images in frontend
-def search_images(property_id: list[int], cur):
-    # TO DO:
+def search_images(property_ids: list[int], cur) -> list[tuple]:
+    """
+    This function will return the set of path_images related to every image given in
+    the input property_ids
 
-    # asdasd
+    Args:
+        - property_ids (list[int]): list of property ids, if no property id comes, this
+        should be an empty list
+        - cur (TODO this should not be here it is postgres-specific): the object
+        to do queries to the DB
+
+    Returns:
+        - result (list[tuple]): the output of the query. If there is no result, this 
+        will return None
+    """
     
-    res = []
-    return res
+    # Check how many ids are being asked
+    num_ids = len(property_ids)
+    result = None
+    
+    if num_ids > 0:
+    
+        # Define the query
+        query = "select * from picture where propertyid in ("        
+        for i, id in enumerate(property_ids):
+            query += str(id)
+            # Add a "," if this is not the last element
+            if i < num_ids-1:
+                query += ","
+        query += ")"
+        
+        print(f"\nThe query is\n{query}")
+        cur.execute(query) # execute the sql
+        result = cur.fetchall()
+        print(f"output type is {type(result)}")
+        print(f"\n{result}\n")
+    
+    return result
+    
 
 # This function will return a list of reviews regrading the given property_id
 # param: property_id, cur

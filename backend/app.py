@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, request, render_template
 import psycopg2
 import psycopg2.extras
 from config import config
-from src.request_handler.search.JsonTranslator import searchQuery
+from src.request_handler.search.JsonTranslator import searchQuery, search_images
 from src.request_handler.login.NameInsertion import login
 
 
@@ -60,10 +60,12 @@ def login():
     return login(conn,cur)
 
 
-@app.route('/search', methods=["POST"])
+@app.route('/search', methods=["GET"])
 # this method receive filter info from webpage, and sent the query result back in json format
 def search():
-    return searchQuery(cur)
+    return search_images([1,2], cur) # just for testing
+    #return searchQuery(cur)
+
 
 if __name__ == '__main__':
 
