@@ -165,8 +165,22 @@ def search_images(property_ids: list[int], cur) -> list[tuple]:
         will return an empty list
     """
     
+    # Check that the input is a list
+    if not isinstance(property_ids, list):
+        raise ValueError(f"property_ids is not a list, it is {type(property_ids)}")
+    
+    # Check that the cursor is not None
+    if cur is None:
+        raise ValueError("cursor is None")
+    
     # Check how many ids are being asked
     num_ids = len(property_ids)
+    
+    # Check if the list is > 0, then all the elements are ints
+    if num_ids > 0:
+        if not all(type(x) is int for x in property_ids):
+            raise ValueError(f"Some elements of property_ids are not ints {property_ids}")
+    
     result = []
     
     if num_ids > 0:
@@ -178,14 +192,11 @@ def search_images(property_ids: list[int], cur) -> list[tuple]:
             # Add a "," if this is not the last element
             if i < num_ids-1:
                 query += ","
-        query += ")"
+        query += ")"        
         
-        print(f"\nThe query is\n{query}\n")
         cur.execute(query) # execute the sql
         result = cur.fetchall()
-        print(f"output type is {type(result)}")
-        print(f"\n{result}\n")
-    
+            
     return result
     
 

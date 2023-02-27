@@ -61,10 +61,15 @@ def login():
 
 
 @app.route('/search', methods=["GET"])
-# this method receive filter info from webpage, and sent the query result back in json format
 def search():
-    return search_images([1,2,1,2], cur) # just for testing
-    #return searchQuery(cur)
+    """
+    this method receives filter info from webpage, and sends the query
+    result back in json format
+
+    Returns:
+        - a json response
+    """
+    return searchQuery(cur)
 
 
 if __name__ == '__main__':
