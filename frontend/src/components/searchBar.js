@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
-import {useEffect, useState} from 'react'
-import { testValues } from '../data/constant';
+import { useEffect, useState } from 'react'
+import { result } from '../data/constant';
 import './searchBar.css';
 
 // Search Bar component containing a number of filters that are dropdown select with options
@@ -55,9 +55,28 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        console.log(json);
-        //console.log(process.env.REACT_APP_PUBLIC_URL)
-        //props.setData(json)
+        // console.log(json);
+
+        // need to be integrated into a function
+        fetch("/search", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                data: json
+            })
+        })
+            .then(
+                res => res.json()
+            ).then(
+                data => {
+                    console.log(data)
+                    props.setDisplayData(data)
+                }
+            )
+
+        //props.setDisplayData({ result })
     }
 
     // Note: change the placeholder of location to city later
@@ -124,7 +143,7 @@ function SearchBar(props) {
             </Select>
             <div className="buttonSection">
                 <button onClick={handleApply} className="button">Apply</button>
-                <button className="button" onClick={handleClear}>Clear</button>
+                <button className="button" onClick={handleClear}>Clear Filters</button>
                 <button className="button">Sort By Price ↑</button>
                 <button className="button">Sort By Price ↓</button>
             </div>

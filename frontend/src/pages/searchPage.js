@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function SearchPage(props) {
     const displayData = props.displayData;
+    const setDisplayData = props.setDisplayData;
     const navigate = useNavigate();
 
     const handleURL = () => {
@@ -13,12 +14,8 @@ function SearchPage(props) {
 
     return (
         <div className="searchPage">
-            <div>
-                <SearchBar className="searchBar" />
-            </div>
-            <div>
-                <DisplaySection />
-            </div>
+            <SearchBar setDisplayData={setDisplayData} />
+            <DisplaySection displayData={displayData} />
         </div>
     );
 }

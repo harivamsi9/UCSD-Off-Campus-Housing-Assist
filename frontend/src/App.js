@@ -18,7 +18,7 @@ function App() {
       </Router> */}
 
       {/* <DetailPage displayData={displayData} /> */}
-      <SearchPage displayData={displayData} />
+      <SearchPage displayData={displayData} setDisplayData={setDisplayData} />
     </div>
   );
 }
