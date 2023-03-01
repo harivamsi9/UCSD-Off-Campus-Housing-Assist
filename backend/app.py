@@ -60,7 +60,7 @@ def login():
     return login(conn,cur)
 
 
-@app.route('/search', methods=["GET"])
+@app.route('/search', methods=["POST"])
 def search():
     """
     this method receives filter info from webpage, and sends the query
