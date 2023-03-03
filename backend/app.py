@@ -44,9 +44,8 @@ def closeConn():
         conn.close()
         print("Database connection closed.")
 
-
-@app.route("/")
 # main page
+@app.route("/")
 def index():
     s = "SELECT * FROM student"
     cur.execute(s)  # Execute the SQL
@@ -60,7 +59,7 @@ def login():
     return login(conn,cur)
 
 
-@app.route('/search', methods=["GET"])
+@app.route('/search', methods=["GET", "POST"])
 def search():
     """
     this method receives filter info from webpage, and sends the query
@@ -78,8 +77,8 @@ if __name__ == '__main__':
     connect()
 
     app.run(
-        # host='localhost',
-        # port=5000,
+        host='localhost',
+        port=5000,
         debug=True,
     )
 
