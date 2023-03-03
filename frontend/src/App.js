@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import SearchBar from './components/searchBar';
-import { useState } from 'react'
+// import { useState } from 'react';
 import SearchPage from './pages/searchPage';
 import DetailPage from './pages/detailPage';
 import { Route, Router, Routes, Link } from 'react-router-dom'
