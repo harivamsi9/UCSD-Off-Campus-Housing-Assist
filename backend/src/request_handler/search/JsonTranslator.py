@@ -37,18 +37,10 @@ def searchQuery(cur):
     # print(search_res[1][0])
     # print(search_res[1][1])
     # print(search_res[1][2])
-
-
     return search_assembler(search_res)
-
-
 
     # json_object = json.dumps(search_res, indent = 4)
     # print(json_object)
-
-    # return property_table
-
-
 
 # params: JSON, connection to db
 # return: Query result table (list of tuples)
@@ -205,6 +197,7 @@ def search_property(data,cur):
 #         result = cur.fetchall()
 #
 #     return result
+
     
 
 # This function will return a list of reviews regrading the given property_id
@@ -215,7 +208,6 @@ def search_review(property_id,cur):
     cur.execute(s,[property_id]) # Execute the SQL
     res = cur.fetchall()
     return res
-
 
 def search_images(property_id, cur):
     s = "SELECT * FROM picture WHERE propertyid = (%s)"
