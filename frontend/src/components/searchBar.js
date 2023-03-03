@@ -4,6 +4,7 @@ import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, com
 import {useEffect, useState} from 'react'
 import { testValues } from '../data/constant';
 import './searchBar.css';
+import fetch_filter_results from "./fetch/fetch_api";
 
 // Search Bar component containing a number of filters that are dropdown select with options
 function SearchBar(props) {
@@ -55,7 +56,8 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        console.log(json);
+        // console.log(json);
+        fetch_filter_results(json);    
         //console.log(process.env.REACT_APP_PUBLIC_URL)
         //props.setData(json)
     }
