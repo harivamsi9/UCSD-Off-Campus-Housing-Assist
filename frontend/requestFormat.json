@@ -1,0 +1,85 @@
+{
+    "result": [
+        {
+            "propertyID": 0,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "sqft": 675.0,
+            "monthly_rent": 1345.0,
+            "address": "3869 Miramar st, La Jolla",
+            "location": "La Jolla",
+            "commute_time_to_ucsd": 14,
+            "images": [
+                "../images/1_1.PNG",
+                "../images/1_2.PNG",
+                "../images/1_3.PNG"
+            ],
+            "website": "apartment.com",
+            "contact": "123-456-7891",
+            "reviews": [
+                {
+                    "date": "07/08/2017",
+                    "comment": "nice apartment",
+                    "rating": 4
+                },
+                {
+                    "date": "08/10/2020",
+                    "comment": "Good apartment",
+                    "rating": 3
+                }
+            ],
+            "historicRent": [
+                {
+                    "date_in": "05/20/2020",
+                    "date_out": "07/10/2021",
+                    "monthly_rent": 1250.0
+                },
+                {
+                    "date_in": "01/10/2019",
+                    "date_out": "04/12/2022",
+                    "monthly_rent": 1200.0
+                }
+            ]
+        },
+        {
+            "propertyID": 1,
+            "bedrooms": 2,
+            "bathrooms": 2,
+            "sqft": 1235.0,
+            "monthly_rent": 2200.0,
+            "address": "4812 Miramar st, La Jolla",
+            "location": "La Jolla",
+            "commute_time_to_ucsd": 20,
+            "images": [
+                "../images/2_1.PNG",
+                "../images/2_2.PNG"
+            ],
+            "website": "apartment2.com",
+            "contact": "123-456-7890",
+            "reviews": [
+                {
+                    "date": "05/08/2016",
+                    "comment": "bad apartment",
+                    "rating": 1
+                },
+                {
+                    "date": "08/20/2019",
+                    "comment": "Good apartment",
+                    "rating": 5
+                }
+            ],
+            "historicRent": [
+                {
+                    "date_in": "04/20/2020",
+                    "date_out": "06/10/2021",
+                    "monthly_rent": 2000.0
+                },
+                {
+                    "date_in": "01/10/2019",
+                    "date_out": "02/10/2020",
+                    "monthly_rent": 1950.0
+                }
+            ]
+        }
+    ]
+}
