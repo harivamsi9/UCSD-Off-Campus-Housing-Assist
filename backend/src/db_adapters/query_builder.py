@@ -16,9 +16,9 @@ class Query:
             raise ValueError()
         condition = column + sign
         if isColumnString:
-            condition += "'" + value + "'"
+            condition += "'" + str(value) + "'"
         else:
-            condition += value
+            condition += str(value)
         self.conditions.append(str(condition))
 
     def __str__(self):

@@ -1,9 +1,9 @@
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, request, render_template
 from config import get_config
 from src.db_adapters.database_interface import getDatabaseAdapter
 from src.request_handler.search.search_handler import search_filter
 
-
+# Global variables
 database = getDatabaseAdapter(get_config()["database"])
 app = Flask(__name__, template_folder="templates")
 

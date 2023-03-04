@@ -1,3 +1,4 @@
+import json
 from src.db_adapters.query_builder import Query
 
 def search_filter(IDatabase, body: dict) -> dict:
@@ -13,25 +14,79 @@ def search_filter(IDatabase, body: dict) -> dict:
     Returns:
         response (json): a json dictionary for the frontend
     """
-    print(f"\n\nProcessing request with data:\n{body}\n\n")
+    print(f"\n\nProcessing request with data:\n{body}")
     property_table = search_property(IDatabase, body["data"])
-    print(property_table)
-    search_res = {}
-    for property in property_table:
-        property_id = property[0] # property_id stores in index 0
-        value_list = []
-        value_list.append(property)
-        #value_list.append(search_images(property_id,cur))
-        #value_list.append(search_review(property_id, cur))
-        search_res[property_id] = value_list
     
+    # Assemble the final result in this list of dictionaries
+    result = []
+    
+    # Add the external values of each property now (external queries)
+    for property in property_table:
+        result_dict = {}
+        result_dict["propertyID"] = property[0]
+        result_dict["bedrooms"] = property[1]
+        result_dict["bathrooms"] = property[2]
+        result_dict["sqft"] = property[3]
+        result_dict["monthly_rent"] = property[4]
+        result_dict["address"] = property[5]
+        result_dict["location"] = property[6]
+        result_dict["contact"] = property[7]
+        result_dict["commute_time_to_ucsd"] = property[8]
+        result_dict["images"] = search_images(IDatabase, result_dict["propertyID"])
+        result_dict["website"] = "apartment.com"
+        result_dict["reviews"] = search_review(IDatabase, result_dict["propertyID"])
+        result_dict["historicRent"] = search_historic_rents(IDatabase, result_dict["propertyID"])
+        result.append(result_dict)
+
+    output = {}
+    output["result"] = result
+    json_data = json.dumps(output)
+    return json_data
+
+
+def search_historic_rents(IDatabase, property_id: int) -> list[dict]:
+    query = Query()
+    query.set_from("historicrent")
+    query.add_condition("propertyid", "=", property_id, isColumnString=False)
+    instruction = str(query)
+    query_result = IDatabase.query(instruction)    
+    output = []
+    for line in query_result: # line is a tuple
+        data_dict = {}
+        data_dict["date_in"] = str(line[1])
+        data_dict["date_out"] = str(line[2])
+        data_dict["monthly_rent"] = str(line[3])
+        output.append(data_dict)
+    print(f"\nHistoric rent output for property id={property_id}:\n{output}")      
+    return output
+
+
+def search_review(IDatabase, property_id: int) -> list[dict]:
+    query = Query()
+    query.set_from("review")
+    query.add_condition("propertyid", "=", property_id, isColumnString=False)
+    instruction = str(query)
+    query_result = IDatabase.query(instruction)    
+    output = []
+    for line in query_result: # line is a tuple
+        data_dict = {}
+        data_dict["date"] = str(line[1])
+        data_dict["comment"] = line[2]
+        data_dict["rating"] = line[3]
+        output.append(data_dict)
+    print(f"\nReviews output for property id={property_id}:\n{output}")
+    return output
+ 
 
 def search_images(IDatabase, property_id: int) -> list[str]:
     query = Query()
     query.set_from("picture")
     query.add_condition("propertyid", "=", property_id, isColumnString=False)
     instruction = str(query)
-    results = IDatabase.query(instruction)
+    query_result = IDatabase.query(instruction)    
+    output = [x[1] for x in query_result]
+    print(f"\nImages output for property id={property_id}:\n{output}")
+    return output
         
 
 def search_property(IDatabase, data: dict) -> list[tuple]:    
@@ -78,11 +133,9 @@ def search_property(IDatabase, data: dict) -> list[tuple]:
         # Last case, its an equal condition
         else:
             query.add_condition(column, "=", filter_value, isColumnString = (column in stringColumns))
-            
-    
+        
     instruction = str(query)
-    print(f"\n\nabout to do query:\n{instruction}\n")
-    results = IDatabase.query(instruction)
-    print(results)
+    print(f"\nabout to do this query:\n{instruction}")
+    results = IDatabase.query(instruction) 
     return results
     
