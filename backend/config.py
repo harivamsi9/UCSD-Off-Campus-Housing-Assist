@@ -6,4 +6,3 @@ def get_config(filename = "./backend/config.json"):
     json_data = json.load(file)
     file.close()
     return json_data
-    
