@@ -11,8 +11,8 @@ insert into student values
 	(2, 'Donald Trump', 'donald@ucsd.edu', 'donald2015', '4413209991');
 
 insert into property values
-	(1, 2, 2, 1073.0, 2995.0, '4084 Crystal Dawn Ln UNIT 203, San Diego, CA 92122', 92122, 'landlord1@gmail.com'),
-	(2, 3, 3, 1355.6, 4200.1, '8585 Via Mallorca, UNIT 19, La Jolla, CA 92037', 92037, 'landlord2@gmail.com');
+	(1, 2, 2, 1073.0, 2995.0, '4084 Crystal Dawn Ln UNIT 203, San Diego, CA 92122', 'La Jolla', 'landlord1@gmail.com', 15),
+	(2, 3, 3, 1355.6, 4200.1, '8585 Via Mallorca, UNIT 19, La Jolla, CA 92037', 'La Jolla', 'landlord2@gmail.com', 45);
 	
 insert into picture values
 	(1, '1_1.png'),

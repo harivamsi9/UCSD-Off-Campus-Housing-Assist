@@ -21,8 +21,9 @@ create table if not exists property(
 	sqft float,
 	monthlyRent float,
 	address varchar(100),
-	zipcode int,
-	email varchar(30)
+	location varchar(20),
+	email varchar(30),
+	commuteTime int
 );
 
 create table if not exists favourites(

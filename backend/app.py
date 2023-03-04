@@ -1,8 +1,7 @@
 from flask import Flask, redirect, url_for, request, render_template
-from config import config, get_config
+from config import get_config
 from src.db_adapters.database_interface import getDatabaseAdapter
-from src.request_handler.search.JsonTranslator import searchQuery
-
+from src.request_handler.search.search_handler import search_filter
 
 
 database = getDatabaseAdapter(get_config()["database"])
@@ -19,17 +18,16 @@ def index():
 @app.route('/search', methods=["POST"])
 def search():
     """
-    this method receives filter info from webpage, and sends the query
+    Receives filter info from webpage, and sends the query
     result back in json format
 
     Returns:
         - a json response
     """
-    return searchQuery(None)
+    return search_filter(database, request.get_json())
 
 
 if __name__ == '__main__':
-
     
     app.run(
         # host='localhost',
