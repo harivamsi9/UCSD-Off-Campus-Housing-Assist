@@ -1,0 +1,11 @@
+{    
+    "database":
+    {
+        "type": "postgresql",
+        "host": "localhost",        
+        "database": "G15",
+        "user": "postgres",
+        "password": "1989",
+        "port": "5433"
+    }
+}
