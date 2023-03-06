@@ -3,11 +3,11 @@
         "bedrooms" : 2,
         "bathrooms" : 2,
         "monthly_rent" : 1500,
-        "location" : "La Jolla",
+        "address": "La Jolla",
+        "zip_code" : 92092,
         "sqft" : 700,
         "commute_time_to_ucsd" : 30
     },
-
     "sort" : {
         "price" : "low-to-high"
     }
