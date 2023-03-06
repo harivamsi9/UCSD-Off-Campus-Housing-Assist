@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Apartment from './apartment';
 import './displaySection.css'
+import { useLocation } from 'react-router-dom';
 
 
 // display section component that shows brief apartment information
@@ -37,7 +38,7 @@ function DisplaySection(props) {
             <div className="displaySection">
                 {data ? data.slice(startIndex, endIndex).map((val, index) => {
                     return (<Apartment data={val} key={index} />)
-                }) : <></>}
+                }) : <p className="notFound">No Results Found</p>}
             </div>
             <button onClick={handleTest} >test</button>
         </div>

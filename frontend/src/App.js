@@ -12,14 +12,14 @@ function App() {
   return (
     <div className="App">
 
-      {/* <Router>
+
         <Routes>
+          <Route path="/" element={<SearchPage displayData={displayData} setDisplayData={setDisplayData}/>} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
-      </Router> */}
 
       {/* <DetailPage displayData={displayData} /> */}
-      <SearchPage displayData={displayData} setDisplayData={setDisplayData} />
+      {/* <SearchPage displayData={displayData} setDisplayData={setDisplayData} /> */}
 
     </div>
   );

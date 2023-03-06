@@ -3,6 +3,7 @@
 }
 
 .displayBlock {
+    width: 85%;
     margin-top: 20px;
     padding: 10px;
     display: flex;
@@ -22,7 +23,8 @@
 .navBar {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .apartment {
@@ -80,4 +82,10 @@
 
 .apartment:hover .detailLink {
     transform: translate(-50%, -500%) scale(1);
+}
+
+.notFound{
+    width: 200px;
+    margin: auto;
+    text-align: center;
 }

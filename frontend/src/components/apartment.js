@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import testimg from './1_1.PNG';
 import { Link } from 'react-router-dom';
 
 // apartment component to show brief information
 function Apartment(props) {
     const data = props.data;
-    const sampleImage = props.data.images[0]
+
+    const testNav = () => {
+
+    }
 
     return (
         <div className="apartment">
@@ -20,7 +22,7 @@ function Apartment(props) {
                 <div className="information">Square feet of apartment: {data.sqft}</div>
                 <div className="information">Commute time to UCSD: {data.commute_time_to_ucsd}</div>
             </div>
-            <Link to="/detail" className="detailLink">
+            <Link to="/detail" className="detailLink" state={{data: data}}>
                 Details
             </Link>
         </div>

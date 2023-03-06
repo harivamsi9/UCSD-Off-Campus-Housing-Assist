@@ -56,27 +56,27 @@ function SearchBar(props) {
 
     const handleApply = () => {
         // console.log(json);
-
+        
         // need to be integrated into a function
-        fetch("/search", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                data: json
-            })
-        })
-            .then(
-                res => res.json()
-            ).then(
-                data => {
-                    console.log(data)
-                    props.setDisplayData(data)
-                }
-            )
+        // fetch("/search", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         data: json
+        //     })
+        // })
+        //     .then(
+        //         res => res.json()
+        //     ).then(
+        //         data => {
+        //             console.log(data)
+        //             props.setDisplayData(data)
+        //         }
+        //     )
 
-        //props.setDisplayData({ result })
+        props.setDisplayData({ result })
     }
 
     // Note: change the placeholder of location to city later

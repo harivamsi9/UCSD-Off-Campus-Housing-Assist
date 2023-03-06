@@ -1,46 +1,61 @@
 import { useState } from 'react';
-import { testDetail } from '../data/constant'
-import testImage1 from '../components/1_1.PNG';
-import testImage2 from '../components/1_2.PNG';
+import { useLocation } from 'react-router-dom';
+import {Carousel} from 'react-responsive-carousel';
 import './detailPage.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
 function DetailPage() {
-    const urls = [testImage1, testImage2, testImage1, testImage1, testImage1, testImage2]
+    const location = useLocation();
+    const data = location.state.data;
+
+    const handleTest = () => {
+        console.log(data);
+    }
+
+    const [imgIndex, setImgIndex] = useState(0);
+
+    const handleNavImg = (e) => {
+        if (e.target.innerHTML === "left"){
+            if (imgIndex >= 1) setImgIndex(imgIndex - 1);
+            else setImgIndex(data.images.length - 1);
+        } else if(e.target.innerHTML === "right"){
+            if (imgIndex < data.images.length - 1) setImgIndex(imgIndex + 1);
+            else setImgIndex(0);
+        }
+    }
+
     return (
         <div className="detailPage">
-            <div className="imageMapSection">
-                <div className="carousel">
-                    {urls.length > 0 && urls.map((val, index) => {
-                        return (
-                            <div className="imgWrapper">
-                                <img src={val} key={index} alt="image not exist" />
-                            </div>
-                        )
-                    })}
-                </div>
-                <div><h2>Google Map Integration</h2></div>
+            <div className="carouselWrapper">
+            <Carousel className="myCarousel">
+                {data.images.length > 0 && data.images.map((val, index) => {
+                    return (
+                        <div className="imgWrapper">
+                            <img src={val} key={index} alt="image not exist" />
+                        </div>
+                    )
+                })}
+            </Carousel>
             </div>
             <div className="detailSection">
-                <div>{testDetail.propertyName}</div>
-                <div className="info">Rating: {testDetail.rating}</div>
-                <div className="info">Address: {testDetail.address}</div>
-                <div className="info">Website: {testDetail.website}</div>
-                <div className="info">Phone: {testDetail.phone}</div>
+                <div className="info">Address: {data.address}</div>
+                <div className="info">Website: {data.website}</div>
+                <div className="info">Phone: {data.contact}</div>
                 <div className="pastPrice">
                     <p>Previous Price</p>
-                    {testDetail.historicRent.length > 0 && testDetail.historicRent.map((val, index) => {
+                    {data.historicRent.length > 0 && data.historicRent.map((val, index) => {
                         return (
-                            <p key={index}>Move In: {val.dateIn}, Move Out: {val.dateOut}, Rent: {val.monthlyRent}</p>
+                            <p key={index}>Move In: {val.date_in}, Move Out: {val.date_out}, Rent: {val.monthly_rent}</p>
                         )
                     })}
                 </div>
                 <div className="reviews">
                     <p>Reviews</p>
-                    {testDetail.reviews.length > 0 && testDetail.reviews.map((val, index) => {
+                    {data.reviews.length > 0 && data.reviews.map((val, index) => {
                         return (
                             <div className="review" key={index}>
-                                <p>Rating: {val.ranking}</p>
+                                <p>Rating: {val.rating}</p>
                                 <p>Comment: {val.comment}</p>
                                 <p>Date: {val.date}</p>
                             </div>
@@ -48,6 +63,8 @@ function DetailPage() {
                     })}
                 </div>
             </div>
+
+            <button onClick={handleTest}>test</button>
         </div>
     );
 }
