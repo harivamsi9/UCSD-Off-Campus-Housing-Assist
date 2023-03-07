@@ -54,8 +54,10 @@ function DetailPage() {
                         )
                     })}
                 </div>
-                <div className="reviews">
+                <div className="review-title">
                     <h3>Reviews</h3>
+                </div>
+                <div className="reviews">
                     {data.reviews.length > 0 && data.reviews.map((val, index) => {
                         return (
                             <div className="review" key={index}>

@@ -45,6 +45,12 @@
     color: #fff;
 }
 
+.review-title{
+    color: white;
+    font-size: 2em;
+    font-family: "Times New Roman";
+}
+
 .reviews {
     margin: 5px;
     height: 300px;
@@ -59,9 +65,11 @@
 .review {
     margin: 5px;
     padding: 5px;
+    left: 100px;
     background-color: orange;
     border-radius: 15px;
     font-family: "Times New Roman";
+    /*text-align: left;*/
 
 }
 
