@@ -72,3 +72,10 @@ header{
 .button:hover {
     background-color: #4095c6;
 }
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    margin: auto;
+}

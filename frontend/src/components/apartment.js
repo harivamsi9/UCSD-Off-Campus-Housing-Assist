@@ -5,13 +5,10 @@ import { Link } from 'react-router-dom';
 function Apartment(props) {
     const data = props.data;
 
-    const testNav = () => {
-
-    }
 
     return (
         <div className="apartment">
-            <img className="aptImage" src={process.env.PUBLIC_URL + data.images[0]} alt="Image not exist" />
+            <img className="aptImage" src={process.env.PUBLIC_URL + "/images/" + data.images[0]} alt="Image not exist" />
             <div className="infoSection">
                 <div className="headerApt">Property Name</div>
                 <div className="information">Address: {data.address}</div>
@@ -22,7 +19,7 @@ function Apartment(props) {
                 <div className="information">Square feet of apartment: {data.sqft}</div>
                 <div className="information">Commute time to UCSD: {data.commute_time_to_ucsd}</div>
             </div>
-            <Link to="/detail" className="detailLink" state={{data: data}}>
+            <Link to="/detail" className="detailLink" state={{ data: data }}>
                 Details
             </Link>
         </div>

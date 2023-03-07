@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import {Carousel} from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 import './detailPage.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -16,10 +16,10 @@ function DetailPage() {
     const [imgIndex, setImgIndex] = useState(0);
 
     const handleNavImg = (e) => {
-        if (e.target.innerHTML === "left"){
+        if (e.target.innerHTML === "left") {
             if (imgIndex >= 1) setImgIndex(imgIndex - 1);
             else setImgIndex(data.images.length - 1);
-        } else if(e.target.innerHTML === "right"){
+        } else if (e.target.innerHTML === "right") {
             if (imgIndex < data.images.length - 1) setImgIndex(imgIndex + 1);
             else setImgIndex(0);
         }
@@ -28,15 +28,15 @@ function DetailPage() {
     return (
         <div className="detailPage">
             <div className="carouselWrapper">
-            <Carousel className="myCarousel">
-                {data.images.length > 0 && data.images.map((val, index) => {
-                    return (
-                        <div className="imgWrapper">
-                            <img src={val} key={index} alt="image not exist" />
-                        </div>
-                    )
-                })}
-            </Carousel>
+                <Carousel className="myCarousel">
+                    {data.images.length > 0 && data.images.map((val, index) => {
+                        return (
+                            <div className="imgWrapper">
+                                <img src={process.env.PUBLIC_URL + "/images/" + val} key={index} alt="image not exist" />
+                            </div>
+                        )
+                    })}
+                </Carousel>
             </div>
             <div className="detailSection">
                 <div className="contact">
