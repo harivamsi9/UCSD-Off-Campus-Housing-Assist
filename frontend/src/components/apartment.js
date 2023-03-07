@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import testimg from './1_1.PNG';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
 
 // apartment component to show brief information
 function Apartment(props) {

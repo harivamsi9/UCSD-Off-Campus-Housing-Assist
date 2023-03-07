@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Apartment from './apartment';
 import './displaySection.css'
+import React, { useEffect } from "react";
 
 
 // display section component that shows brief apartment information
