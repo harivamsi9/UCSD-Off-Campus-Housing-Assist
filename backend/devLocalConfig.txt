@@ -24,3 +24,30 @@ For Hari Vamsi
     }
 }
 
+
+For Jesse (TODO: Please check and modify your local config details here below)
+{    
+    "database":
+    {
+        "type": "postgresql",
+        "host": "localhost",        
+        "database": "postgres",
+        "user": "postgres",
+        "password": "1234",
+        "port": "5432"
+    }
+}
+
+For Vincent (TODO: Please check and modify your local config details here below)
+{    
+    "database":
+    {
+        "type": "postgresql",
+        "host": "localhost",        
+        "database": "postgres",
+        "user": "postgres",
+        "password": "1234",
+        "port": "5432"
+    }
+}
+
