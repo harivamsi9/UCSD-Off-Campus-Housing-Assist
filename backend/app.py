@@ -2,10 +2,12 @@ from flask import Flask, request, render_template
 from config import get_config
 from src.db_adapters.database_interface import getDatabaseAdapter
 from src.request_handler.search.search_handler import search_filter
+from flask_cors import CORS
 
 # Global variables
 database = getDatabaseAdapter(get_config()["database"])
 app = Flask(__name__, template_folder="templates")
+CORS(app)
 
 
 @app.route("/")

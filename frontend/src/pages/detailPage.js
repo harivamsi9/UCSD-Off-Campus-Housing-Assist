@@ -3,6 +3,7 @@ import { testDetail } from '../data/constant'
 import testImage1 from '../components/1_1.PNG';
 import testImage2 from '../components/1_2.PNG';
 import './detailPage.css';
+import React, { useEffect } from "react";
 
 
 function DetailPage() {
