@@ -27,7 +27,7 @@ def search():
     return search_filter(database, request.get_json())
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
     
     app.run(
         # host='localhost',

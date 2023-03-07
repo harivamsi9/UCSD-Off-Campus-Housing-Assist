@@ -1,0 +1,51 @@
+{    
+    "favourites": 
+    [
+        "studentid", 
+        "propertyid"
+    ],
+
+    "historicrent": 
+    [
+        "propertyid",
+        "dateini",
+        "dateend",
+        "monthlyrent"
+    ],
+
+    "picture": 
+    [
+        "propertyid",
+        "relativepath"
+    ],
+
+    "property": 
+    [
+        "propertyid",
+        "bedroom",
+        "bathroom",
+        "sqft",
+        "monthlyrent",
+        "address",
+        "location",
+        "email",
+        "commutetime"
+    ],
+
+    "review":
+    [
+        "propertyid",
+        "date",
+        "comment",
+        "rating"
+    ],
+
+    "student":
+    [
+        "studentid",
+        "name",
+        "email",
+        "password",
+        "phone"
+    ]
+}
