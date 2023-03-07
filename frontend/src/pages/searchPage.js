@@ -2,6 +2,7 @@ import SearchBar from '../components/searchBar';
 import DisplaySection from '../components/displaySection';
 import './searchPage.css';
 import { useNavigate } from 'react-router-dom';
+import ucsdlogo from '../components/logoucsd.png'
 
 function SearchPage(props) {
     const displayData = props.displayData;
@@ -14,8 +15,18 @@ function SearchPage(props) {
 
     return (
         <div className="searchPage">
-            <SearchBar setDisplayData={setDisplayData} />
-            <DisplaySection displayData={displayData} />
+            <header>
+                <img className="ucsd_icon" src={ucsdlogo} alt="Image not exist" width="80"/>
+                <h2 className="logo">UCSD HOUSE FINDER</h2>
+                <nav className="navigation">
+                    <p>Happy Finding House!</p>
+                </nav>
+            </header>
+            <div className="contentPage">
+                <SearchBar setDisplayData={setDisplayData} />
+                <DisplaySection displayData={displayData} />
+            </div>
+
         </div>
     );
 }

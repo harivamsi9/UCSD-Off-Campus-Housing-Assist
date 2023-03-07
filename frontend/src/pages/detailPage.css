@@ -1,12 +1,14 @@
 .detailPage {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: black;
 }
 
 
 .detailSection {
-    background-color: grey;
+    background-color: orange;
     margin-left: 50px;
+    border-radius: 15px;
 }
 
 .carouselWrapper{
@@ -18,16 +20,29 @@
     height: 500px;
 }
 
+.contact{
+    font-size: 2em;
+    color: white;
+    font-family: "Times New Roman";
+}
+
 .info {
     margin: 5px;
     border-radius: 15px;
-    background-color: white;
+    /*background-color: orange;*/
+
+
+    color: #fff;
 }
 
 .pastPrice {
     border-radius: 15px;
-    background-color: white;
+    background-color: orange;
     margin: 5px;
+
+    font-size: 2em;
+    font-family: "Times New Roman";
+    color: #fff;
 }
 
 .reviews {
@@ -35,18 +50,25 @@
     height: 300px;
     overflow: scroll;
     border-radius: 15px;
-    background-color: white;
+    background-color: orange;
+    color: white;
+    font-size: 2em;
+    font-family: "Times New Roman";
 }
 
 .review {
     margin: 5px;
     padding: 5px;
-    background-color: grey;
+    background-color: orange;
     border-radius: 15px;
+    font-family: "Times New Roman";
+
 }
 
 .review p {
     margin: 5px;
     border-radius: 15px;
-    background-color: white;
+    background-color: orange;
 }
+
+

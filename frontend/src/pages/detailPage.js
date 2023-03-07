@@ -39,11 +39,15 @@ function DetailPage() {
             </Carousel>
             </div>
             <div className="detailSection">
-                <div className="info">Address: {data.address}</div>
-                <div className="info">Website: {data.website}</div>
-                <div className="info">Phone: {data.contact}</div>
+                <div className="contact">
+                    <h3>Info</h3>
+                    <div className="info">Address: {data.address}</div>
+                    <div className="info">Website: {data.website}</div>
+                    <div className="info">Phone: {data.contact}</div>
+                </div>
+
                 <div className="pastPrice">
-                    <p>Previous Price</p>
+                    <h3>Previous Price</h3>
                     {data.historicRent.length > 0 && data.historicRent.map((val, index) => {
                         return (
                             <p key={index}>Move In: {val.date_in}, Move Out: {val.date_out}, Rent: {val.monthly_rent}</p>
@@ -51,7 +55,7 @@ function DetailPage() {
                     })}
                 </div>
                 <div className="reviews">
-                    <p>Reviews</p>
+                    <h3>Reviews</h3>
                     {data.reviews.length > 0 && data.reviews.map((val, index) => {
                         return (
                             <div className="review" key={index}>
@@ -64,7 +68,7 @@ function DetailPage() {
                 </div>
             </div>
 
-            <button onClick={handleTest}>test</button>
+            {/*<button onClick={handleTest}>test</button>*/}
         </div>
     );
 }
