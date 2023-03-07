@@ -22,6 +22,8 @@ def search_filter(IDatabase, body: dict) -> dict:
     
     # Add the external values of each property now (external queries)
     for property in property_table:
+        print("THIS IS LINE 25 of search_handler.py. Below is property in property_table")
+        print(property)
         result_dict = {}
         result_dict["propertyID"] = property[0]
         result_dict["bedrooms"] = property[1]
@@ -136,6 +138,7 @@ def search_property(IDatabase, data: dict) -> list[tuple]:
         
     instruction = str(query)
     print(f"\nabout to do this query:\n{instruction}")
+    #instruction = "SELECT * FROM property WHERE bedroom=2 AND bathroom=2" #AND monthlyrent>=1000 AND monthlyrent<=2000 AND location='La Jolla' AND sqft>=600 AND sqft<=1000 AND commutetime>=15 AND commutetime<=30;"
     results = IDatabase.query(instruction) 
     return results
     

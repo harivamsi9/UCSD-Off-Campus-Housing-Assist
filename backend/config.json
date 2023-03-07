@@ -1,11 +1,10 @@
-{    
-    "database":
-    {
+{
+    "database": {
         "type": "postgresql",
-        "host": "localhost",        
-        "database": "G15",
+        "host": "localhost",
+        "database": "localg15",
         "user": "postgres",
-        "password": "1989",
-        "port": "5433"
+        "password": "1234",
+        "port": "5432"
     }
 }
