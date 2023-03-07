@@ -49,3 +49,7 @@ class DbAdapterPostgreSQL(DatabaseInterface):
             self.connection.close()
             print("Database connection closed.")
     
+    
+    def get_columns_names(self) -> list:
+        colnames = [desc[0] for desc in self.cursor.description]
+        return colnames

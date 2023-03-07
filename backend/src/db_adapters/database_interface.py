@@ -1,4 +1,5 @@
 import abc
+import json
 
 
 class DatabaseInterface(metaclass=abc.ABCMeta):
@@ -38,6 +39,16 @@ class DatabaseInterface(metaclass=abc.ABCMeta):
         """
         raise NotImplementedError
     
+    @abc.abstractmethod
+    def get_columns_names(self) -> list:
+        """
+        Retrieves the column names of the last query
+
+        Returns:
+            list: 
+        """
+        raise NotImplementedError
+    
 
 def getDatabaseAdapter(config: dict):
     """
@@ -68,13 +79,54 @@ def getDatabaseAdapter(config: dict):
     
     # Check for the types implemented
     databaseType = config["type"]
+    adapter = None
     if databaseType == "postgresql":
         from src.db_adapters.adapter_postgresql import DbAdapterPostgreSQL
-        return DbAdapterPostgreSQL(config)
+        adapter =  DbAdapterPostgreSQL(config)
     else:
         print(f"Database adapter {databaseType} not implemented")
-        raise NotImplementedError() 
+        raise NotImplementedError()
     
+    # Check the version before returning
+    test_DB_schema(adapter)    
+    return adapter
+
+
+def test_DB_schema(adapter):
+    """
+    Tests if the current connection to the DB has the 
+    latest version of the database
+    """
+    print("\nTesting DB version:")
+    file = open("./database/database_schema.json")
+    schema = json.load(file)
+    
+    for table in schema:
+        adapter.query("select * from " + table + " limit 0")
+        columns_in_query = adapter.get_columns_names()
+        
+        # The number of columns must match
+        num_columns_in_schema = len(schema[table])
+        num_columns_in_query = len(columns_in_query)
+        if num_columns_in_query != num_columns_in_schema:
+            print("Error: schema DB not updated")
+            print(f"Table: {table}")
+            print(f"# Columns in schema: {num_columns_in_schema}")
+            print(f"# Columns in query: {num_columns_in_query}")
+            print("They don't match! Please update your DB")
+            raise ValueError()
+        
+        # The name must match exactly
+        for i, column_in_table in enumerate(schema[table]):
+            if (not(column_in_table == columns_in_query[i])):
+                print("Error: schema DB not updated")
+                print(f"Table: {table}")
+                print(f"Column name in query: {columns_in_query[i]}")
+                print(f"Column name in schema: {column_in_table}")
+                print("They don't match! Please update your DB")
+                raise ValueError()
+    print("DB up to date!\n")
+        
     
 
     
