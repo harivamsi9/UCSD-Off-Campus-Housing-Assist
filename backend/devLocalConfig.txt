@@ -1,0 +1,26 @@
+For Francisco
+{    
+    "database":
+    {
+        "type": "postgresql",
+        "host": "localhost",        
+        "database": "G15",
+        "user": "postgres",
+        "password": "1989",
+        "port": "5433"
+    }
+}
+
+For Hari Vamsi
+{    
+    "database":
+    {
+        "type": "postgresql",
+        "host": "localhost",        
+        "database": "postgres",
+        "user": "postgres",
+        "password": "1234",
+        "port": "5432"
+    }
+}
+
