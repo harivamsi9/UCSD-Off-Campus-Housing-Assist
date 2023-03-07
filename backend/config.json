@@ -1,3 +1,4 @@
+// Config for Francisco
 {    
     "database":
     {
@@ -9,3 +10,16 @@
         "port": "5433"
     }
 }
+
+// Config for Hari Vamsi Yadavalli
+// {    
+//     "database":
+//     {
+//         "type": "postgresql",
+//         "host": "localhost",        
+//         "database": "G15",
+//         "user": "postgres",
+//         "password": "1989",
+//         "port": "5433"
+//     }
+// }
