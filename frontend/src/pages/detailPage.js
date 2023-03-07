@@ -13,32 +13,19 @@ function DetailPage() {
         console.log(data);
     }
 
-    const [imgIndex, setImgIndex] = useState(0);
-
-    const handleNavImg = (e) => {
-        if (e.target.innerHTML === "left") {
-            if (imgIndex >= 1) setImgIndex(imgIndex - 1);
-            else setImgIndex(data.images.length - 1);
-        } else if (e.target.innerHTML === "right") {
-            if (imgIndex < data.images.length - 1) setImgIndex(imgIndex + 1);
-            else setImgIndex(0);
-        }
-    }
-
     return (
         <div className="detailPage">
             <div className="carouselWrapper">
-                <Carousel className="myCarousel">
+                <Carousel className="myCarousel" autoPlay interval={3000}>
                     {data.images.length > 0 && data.images.map((val, index) => {
                         return (
-                            <div className="imgWrapper">
-                                <img src={process.env.PUBLIC_URL + "/images/" + val} key={index} alt="image not exist" />
-                            </div>
+                            <img src={process.env.PUBLIC_URL + "/images/" + val} key={index} alt="image not exist" />
                         )
                     })}
                 </Carousel>
             </div>
             <div className="detailSection">
+                <h3>Details of the apartment</h3>
                 <div className="info">Address: {data.address}</div>
                 <div className="info">Website: {data.website}</div>
                 <div className="info">Phone: {data.contact}</div>
@@ -64,7 +51,7 @@ function DetailPage() {
                 </div>
             </div>
 
-            <button onClick={handleTest}>test</button>
+            {/* <button onClick={handleTest}>test</button> */}
         </div>
     );
 }

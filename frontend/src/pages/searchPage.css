@@ -1,9 +1,8 @@
-.searchPage {
+.searchSection {
     display: flex;
     flex-direction: row;
     font-size: 20px;
 }
-
 
 .button {
     width: 150px;

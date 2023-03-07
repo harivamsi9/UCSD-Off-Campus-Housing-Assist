@@ -28,15 +28,19 @@ function SearchPage(props) {
     }
 
     return (
-        <div className="searchPage">
-            {displayData ?
-                <div className="navBar">
-                    <button className="button" onClick={handlePrev} disabled={page === 1}>Prev</button>
-                    <p>Page {page} of {totalPages}</p>
-                    <button className="button" onClick={handleNext} disabled={page === totalPages}>Next</button>
-                </div> : <></>}
-            <SearchBar setDisplayData={setDisplayData} />
-            <DisplaySection displayData={displayData} startIndex={startIndex} endIndex={endIndex} />
+        <div>
+            <h1>UCSD House Finder</h1>
+            <h2>Use the left side filter section to choose your expectation of apartments</h2>
+            <div className="searchSection">
+                {displayData ?
+                    <div className="navBar">
+                        <button className="button" onClick={handlePrev} disabled={page === 1}>Prev</button>
+                        <p>Page {page} of {totalPages}</p>
+                        <button className="button" onClick={handleNext} disabled={page === totalPages}>Next</button>
+                    </div> : <></>}
+                <SearchBar setDisplayData={setDisplayData} />
+                <DisplaySection displayData={displayData} startIndex={startIndex} endIndex={endIndex} />
+            </div>
         </div>
     );
 }

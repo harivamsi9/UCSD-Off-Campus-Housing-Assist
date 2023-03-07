@@ -13,12 +13,12 @@ function DisplaySection(props) {
     const endIndex = props.endIndex;
 
     return (
-        <div className="displayBlock">
-            <div className="displaySection">
-                {data && data.length > 0 ? data.slice(startIndex, endIndex).map((val, index) => {
-                    return (<Apartment data={val} key={index} />)
-                }) : <p className="notFound">No Results Found</p>}
-            </div>
+        <div className="displaySection">
+            {data && data.length > 0 ? data.slice(startIndex, endIndex).map((val, index) => {
+                return (<Apartment data={val} key={index} />)
+            }) : <div className="notFound">{
+                data && data.length === 0 ? <p className="notFound1">No Apartments Matched</p> : <p className="notFound1">Choose your preferences to get matched apartments</p>
+            }</div>}
         </div>
     )
 }

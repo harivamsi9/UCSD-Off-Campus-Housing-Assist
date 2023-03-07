@@ -6,16 +6,18 @@
 
 .detailSection {
     background-color: grey;
-    margin-left: 50px;
+    margin: 50px;
+    height: 100%;
+    width: 100%;
 }
 
-.carouselWrapper{
-    margin: auto;
+.carouselWrapper {
+    margin: 50px;
 }
 
-.myCarousel{
-    width: 500px;
-    height: 500px;
+.myCarousel {
+    width: 700px;
+    height: 600px;
 }
 
 .info {
