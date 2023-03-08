@@ -55,6 +55,7 @@ function SearchBar(props) {
             a.clearValue();
         })
         setJson({});
+        setQueryResults({})
         props.setDisplayData({});
     }
     // var count = 0;
