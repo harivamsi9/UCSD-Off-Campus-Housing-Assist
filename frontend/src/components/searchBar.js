@@ -10,6 +10,7 @@ import fetch_filter_results from "./fetchAPI/fetchapi";
 function SearchBar(props) {
     const [queryResults, setQueryResults] = useState([]);
     const [json, setJson] = useState({});
+    const [count, setCount] = useState([]);
 
     var arr = [];
     
@@ -56,7 +57,13 @@ function SearchBar(props) {
         setJson({});
         props.setDisplayData({});
     }
-
+    // var count = 0;
+    useEffect(() => {
+        console.log(queryResults)
+        props.setDisplayData(queryResults);
+        console.log("updated queryResults display")
+      }, [count]);
+    
     const handleApply = () => {
         // fetch_filter_results(json, props);
 
@@ -66,9 +73,10 @@ function SearchBar(props) {
                     // filterData = data;
 
                     setQueryResults(data);
-                    console.log(data)
+                    setCount(0);
+                    // console.log(data)
                     // localCache(filterData)
-                    props.setDisplayData(queryResults)
+                    // props.setDisplayData(data)
                 })
                 .catch(error => {
                     // Handle errors
@@ -78,28 +86,34 @@ function SearchBar(props) {
         // console.log(filterData)
         // props.setDisplayData({ result })
     }
+
     const sortByPriceAsc = () => {
-        props.setDisplayData({});
-        console.log(queryResults)
+        
+        // console.log(queryResults)
         const sortedResults1 = [...queryResults.result].sort((a, b) => a.monthly_rent - b.monthly_rent);
-        console.log(sortedResults1) 
+        // console.log(sortedResults1) 
         var qr1 = queryResults
         qr1.result = sortedResults1;
-        console.log(qr1);
+        // queryResults.result = sortedResults1;
+        // console.log(qr1);
         setQueryResults(qr1);
-        
-        props.setDisplayData(qr1);
+        props.setDisplayData({});
+        setCount(1);
+        // props.setDisplayData(qr1);
     }
     const sortByPriceDsc = () => {
-        props.setDisplayData({});
+        // props.setDisplayData({});
         console.log(queryResults)
         const sortedResults = [...queryResults.result].sort((a, b) => b.monthly_rent - a.monthly_rent);
         console.log(sortedResults) 
         var qr = queryResults
         qr.result = sortedResults;
+        queryResults.result = sortedResults;
         console.log(qr);
         setQueryResults(qr);
-        props.setDisplayData(qr);
+        props.setDisplayData({});
+        setCount(2);
+        // props.setDisplayData(qr);
     }
 
     return (
