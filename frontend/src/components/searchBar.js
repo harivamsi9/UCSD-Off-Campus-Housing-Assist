@@ -57,7 +57,7 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        fetch_filter_results(json);
+        fetch_filter_results(json, props);
         // props.setDisplayData({ result })
     }
 

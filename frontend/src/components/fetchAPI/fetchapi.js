@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-function fetch_filter_results(json) {
+function fetch_filter_results(json, props) {
 
     fetch("/search", {
         method: "POST",
@@ -17,6 +17,8 @@ function fetch_filter_results(json) {
         ).then(
         data => {
             console.log(data)
+            props.setDisplayData(data)
+            // return data
         }
     )
 }
