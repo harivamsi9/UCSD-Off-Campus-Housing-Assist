@@ -57,7 +57,19 @@ function SearchBar(props) {
     }
 
     const handleApply = () => {
-        fetch_filter_results(json, props);
+        // fetch_filter_results(json, props);
+        fetch_filter_results(json)
+                .then(data => {
+                    // Do something with the data
+                    console.log(data)
+                    props.setDisplayData(data)
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error(error)
+                })
+
+        // console.log(data)
         // props.setDisplayData({ result })
     }
 
