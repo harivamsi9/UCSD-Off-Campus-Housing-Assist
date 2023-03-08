@@ -55,13 +55,15 @@ function SearchBar(props) {
         setJson({});
         props.setDisplayData({});
     }
-
+    let filterData;
     const handleApply = () => {
         // fetch_filter_results(json, props);
+
         fetch_filter_results(json)
                 .then(data => {
                     // Do something with the data
-                    console.log(data)
+                    filterData = data;
+                    console.log(filterData)
                     props.setDisplayData(data)
                 })
                 .catch(error => {
@@ -69,7 +71,7 @@ function SearchBar(props) {
                     console.error(error)
                 })
 
-        // console.log(data)
+        // console.log(filterData)
         // props.setDisplayData({ result })
     }
 
