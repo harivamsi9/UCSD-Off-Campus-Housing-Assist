@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import Apartment from './apartment';
 import './displaySection.css'
