@@ -1,7 +1,67 @@
 .searchPage {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    overflow: hidden;
+    background: url("../../public/images/Geisel_Library_2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.empty {
+    height: 140vh;
+}
+
+
+.navigation {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation ::after {
+    content: "GO GO GO";
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navigation :hover::after {
+    transform: scaleX(1);
+}
+
+.contentPage {
+    /*.searchSection {*/
     display: flex;
     flex-direction: row;
     font-size: 20px;
+    background-size: contain;
+
 }
 
 .button {
@@ -17,4 +77,11 @@
 
 .button:hover {
     background-color: #4095c6;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    margin: auto;
 }

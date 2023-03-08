@@ -52,11 +52,10 @@ function SearchBar(props) {
             a.clearValue();
         })
         setJson({});
+        props.setDisplayData({});
     }
 
     const handleApply = () => {
-        // console.log(json);
-
         // need to be integrated into a function
         fetch("/search", {
             method: "POST",
@@ -76,10 +75,9 @@ function SearchBar(props) {
                 }
             )
 
-        //props.setDisplayData({ result })
+        // props.setDisplayData({ result })
     }
 
-    // Note: change the placeholder of location to city later
 
     return (
         <div className="searchBar" data-testid="searchBar">

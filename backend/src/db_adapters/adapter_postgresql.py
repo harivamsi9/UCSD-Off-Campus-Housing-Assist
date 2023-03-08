@@ -30,6 +30,11 @@ class DbAdapterPostgreSQL(DatabaseInterface):
             print("Connecting to the PostgreSQL database...")
             self.connection = psycopg2.connect(**params)
             self.cursor = self.connection.cursor()
+            print("CURSOR:=> ", self.cursor)
+            print("Connection:=> ", self.connection)
+            self.cursor.execute("SELECT * FROM property WHERE bedroom=2 AND bathroom=2")
+            print(self.cursor.fetchall())
+            
             
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
@@ -39,7 +44,10 @@ class DbAdapterPostgreSQL(DatabaseInterface):
     
     
     def query(self, instruction: str) -> list[tuple]:
+        print("this is in adapter_postSQL.py ")
         self.cursor.execute(instruction)
+       
+        print("instruction: ", instruction)
         return self.cursor.fetchall()
     
     

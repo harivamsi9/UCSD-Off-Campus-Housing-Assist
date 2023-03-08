@@ -36,9 +36,9 @@ export const squareFeet = [
 ];
 
 export const commuteTime = [
-    { value: '-15min', label: '-15min' },
-    { value: '15min-30min', label: '15min-30min' },
-    { value: '30min+', label: '30min' }
+    { value: '-15', label: '-15' },
+    { value: '15-30', label: '15-30' },
+    { value: '30+', label: '30' }
 ];
 
 export const testValues = [

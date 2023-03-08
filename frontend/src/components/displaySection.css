@@ -2,16 +2,23 @@
     box-sizing: border-box;
 }
 
+
 .displayBlock {
-    margin-top: 20px;
+    /* .displaySection { */
+    width: 88%;
     padding: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     position: absolute;
     left: 200px;
+    margin-top: 60px;
+    height: 100%;
+
+    background: transparent;
 }
+
+
 
 .displaySection {
     display: flex;
@@ -22,11 +29,14 @@
 .navBar {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .apartment {
     width: 320px;
+    height: 560px;
     margin: 5px;
     display: block;
     position: relative;
@@ -80,4 +90,10 @@
 
 .apartment:hover .detailLink {
     transform: translate(-50%, -500%) scale(1);
+}
+
+.notFound {
+    width: 50%;
+    position: absolute;
+    left: 19vw;
 }

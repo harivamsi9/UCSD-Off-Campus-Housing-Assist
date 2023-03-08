@@ -4,6 +4,7 @@ from src.db_adapters.database_interface import getDatabaseAdapter
 from src.request_handler.search.search_handler import search_filter
 
 # Global variables
+global database
 database = getDatabaseAdapter(get_config()["database"])
 app = Flask(__name__, template_folder="templates")
 
@@ -24,6 +25,8 @@ def search():
     Returns:
         - a json response
     """
+    #database.query("SELECT * FROM property WHERE bedroom=2 AND bathroom=2;")
+    #return database.cursor.fetchall()
     return search_filter(database, request.get_json())
 
 
