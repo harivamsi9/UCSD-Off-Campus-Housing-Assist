@@ -10,7 +10,6 @@ function Apartment(props) {
         <div className="apartment">
             <img className="aptImage" src={process.env.PUBLIC_URL + "/images/" + data.images[0]} alt="Image not exist" />
             <div className="infoSection">
-                <div className="headerApt">Property Name</div>
                 <div className="information">Address: {data.address}</div>
                 <div className="information">Bedroom type: {data.bedrooms}</div>
                 <div className="information">Bathroom type: {data.bathrooms}</div>

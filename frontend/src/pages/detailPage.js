@@ -25,6 +25,7 @@ function DetailPage() {
                 </Carousel>
             </div>
             <div className="detailSection">
+
                 <div className="contact">
                     <h3>Info</h3>
                     <div className="info">Address: {data.address}</div>
@@ -33,6 +34,7 @@ function DetailPage() {
                 </div>
 
                 {/* <h3>Details of the apartment</h3>
+
                 <div className="info">Address: {data.address}</div>
                 <div className="info">Website: {data.website}</div>
                 <div className="info">Phone: {data.contact}</div> */}

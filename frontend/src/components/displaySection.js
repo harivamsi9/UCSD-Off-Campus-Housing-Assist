@@ -18,9 +18,16 @@ function DisplaySection(props) {
                 {data && data.length > 0 ? data.slice(startIndex, endIndex).map((val, index) => {
                     return (<Apartment data={val} key={index} />)
                 }) : <div className="notFound">{
-                    data && data.length === 0 ? <p className="notFound1">No Apartments Matched</p> : <p className="notFound1">Choose your preferences to get matched apartments</p>
+                    data && data.length === 0 ? <h3 className="notFound1">No Apartments Matched</h3> : <h3 className="notFound1">Choose your preferences to get matched apartments</h3>
                 }</div>}
             </div>
+
+            {/* <div className="displaySection">
+            {data && data.length > 0 ? data.slice(startIndex, endIndex).map((val, index) => {
+                return (<Apartment data={val} key={index} />)
+            }) : <div className="notFound">{
+                data && data.length === 0 ? <p className="notFound1">No Apartments Matched</p> : <p className="notFound1">Choose your preferences to get matched apartments</p>
+            }</div>} */}
         </div>
     )
 }

@@ -1,7 +1,9 @@
 .searchPage {
     /*display: flex;*/
     /*flex-direction: column;*/
-    background-color: black;
+    overflow: hidden;
+    background: url("../../public/images/Geisel_Library_2.jpg") no-repeat center;
+    background-size: cover;
 }
 
 header {
@@ -22,6 +24,9 @@ header {
     user-select: none;
 }
 
+.empty {
+    height: 140vh;
+}
 
 
 .navigation {
@@ -56,8 +61,7 @@ header {
     flex-direction: row;
     font-size: 20px;
     background-size: contain;
-    background: url("../components/Geisel_Library_2.jpg") no-repeat center;
-    /*background-color: black;*/
+
 }
 
 .button {

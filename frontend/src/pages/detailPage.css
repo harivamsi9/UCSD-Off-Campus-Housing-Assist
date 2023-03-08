@@ -13,15 +13,17 @@
     margin: 50px;
     height: 100%;
     width: 100%; */
+
+    /* background-color: grey;
+    margin: 50px;
+    height: 100%;
+    width: 100%; */
 }
 
-.carouselWrapper {
-    margin: 50px;
-}
 
 .myCarousel {
-    width: 700px;
-    height: 600px;
+    width: 70%;
+    margin: auto;
 }
 
 .contact {
