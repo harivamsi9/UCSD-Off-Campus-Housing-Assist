@@ -2,6 +2,7 @@ import SearchBar from '../components/searchBar';
 import DisplaySection from '../components/displaySection';
 import './searchPage.css';
 import { useState } from 'react';
+import React from 'react';
 
 
 function SearchPage(props) {

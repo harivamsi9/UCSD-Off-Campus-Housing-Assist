@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
+import React from 'react';
 import './detailPage.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
