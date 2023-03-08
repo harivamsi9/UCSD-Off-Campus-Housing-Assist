@@ -8,10 +8,11 @@ import fetch_filter_results from "./fetchAPI/fetchapi";
 
 // Search Bar component containing a number of filters that are dropdown select with options
 function SearchBar(props) {
+    const [queryResults, setQueryResults] = useState([]);
     const [json, setJson] = useState({});
 
     var arr = [];
-
+    
     const handleChangeBed = (selected) => {
         if (selected != null) {
             setJson({ ...json, bedroom: selected.value });
@@ -55,16 +56,19 @@ function SearchBar(props) {
         setJson({});
         props.setDisplayData({});
     }
-    let filterData;
+
     const handleApply = () => {
         // fetch_filter_results(json, props);
 
         fetch_filter_results(json)
                 .then(data => {
                     // Do something with the data
-                    filterData = data;
-                    console.log(filterData)
-                    props.setDisplayData(data)
+                    // filterData = data;
+
+                    setQueryResults(data);
+                    console.log(data)
+                    // localCache(filterData)
+                    props.setDisplayData(queryResults)
                 })
                 .catch(error => {
                     // Handle errors
@@ -74,7 +78,29 @@ function SearchBar(props) {
         // console.log(filterData)
         // props.setDisplayData({ result })
     }
-
+    const sortByPriceAsc = () => {
+        props.setDisplayData({});
+        console.log(queryResults)
+        const sortedResults1 = [...queryResults.result].sort((a, b) => a.monthly_rent - b.monthly_rent);
+        console.log(sortedResults1) 
+        var qr1 = queryResults
+        qr1.result = sortedResults1;
+        console.log(qr1);
+        setQueryResults(qr1);
+        
+        props.setDisplayData(qr1);
+    }
+    const sortByPriceDsc = () => {
+        props.setDisplayData({});
+        console.log(queryResults)
+        const sortedResults = [...queryResults.result].sort((a, b) => b.monthly_rent - a.monthly_rent);
+        console.log(sortedResults) 
+        var qr = queryResults
+        qr.result = sortedResults;
+        console.log(qr);
+        setQueryResults(qr);
+        props.setDisplayData(qr);
+    }
 
     return (
         <div className="searchBar" data-testid="searchBar">
@@ -139,8 +165,8 @@ function SearchBar(props) {
             <div className="buttonSection">
                 <button onClick={handleApply} className="button">Apply</button>
                 <button className="button" onClick={handleClear}>Clear Filters</button>
-                <button className="button">Sort By Price ↑</button>
-                <button className="button">Sort By Price ↓</button>
+                <button className="button" onClick={sortByPriceDsc}>Sort By Price ↑</button>
+                <button className="button" onClick={sortByPriceAsc}>Sort By Price ↓</button>
             </div>
         </div>
     );
