@@ -71,3 +71,18 @@ press a under the test runner to run all tests
 install react-router for switching between different pages
 
 >>>>>>> 1acb24583364e3c8f2401d9a65b97f4d105735db
+
+
+## How to see work in previous sprints
+
+Since Sprint 1, 2, 3, and 4 are complete, the work finished in those Sprint cannot be viewed on Board. Instead, go to Sprint burndown chart: https://segroup15.atlassian.net/jira/software/projects/SG15/boards/1/reports/burndown
+
+Select the Sprint you want to check:
+
+![image](https://user-images.githubusercontent.com/77291608/223940969-b8417e44-3286-427e-953f-969030082ecf.png)
+
+And the work is shown below:
+
+![image](https://user-images.githubusercontent.com/77291608/223941526-a32d2a75-1856-4367-b33a-5b5687f5cd3b.png)
+
+
