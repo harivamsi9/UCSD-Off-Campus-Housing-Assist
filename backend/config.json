@@ -2,7 +2,7 @@
     "database": {
         "type": "postgresql",
         "host": "localhost",
-        "database": "postgres",
+        "database": "G15",
         "user": "postgres",
         "password": "1234",
         "port": "5432"

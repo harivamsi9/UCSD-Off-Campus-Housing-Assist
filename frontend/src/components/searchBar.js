@@ -55,16 +55,17 @@ function SearchBar(props) {
             a.clearValue();
         })
         setJson({});
-        setQueryResults({})
+        setQueryResults(6)
         props.setDisplayData({});
     }
     // var count = 0;
     useEffect(() => {
         console.log(queryResults)
-        props.setDisplayData(queryResults);
+        //props.setDisplayData(queryResults);
         console.log("updated queryResults display")
       }, [count]);
     
+
     const handleApply = () => {
         // fetch_filter_results(json, props);
 
@@ -77,7 +78,7 @@ function SearchBar(props) {
                     setCount(0);
                     // console.log(data)
                     // localCache(filterData)
-                    // props.setDisplayData(data)
+                    props.setDisplayData(data)
                 })
                 .catch(error => {
                     // Handle errors
@@ -89,7 +90,6 @@ function SearchBar(props) {
     }
 
     const sortByPriceAsc = () => {
-        
         // console.log(queryResults)
         const sortedResults1 = [...queryResults.result].sort((a, b) => a.monthly_rent - b.monthly_rent);
         // console.log(sortedResults1) 
@@ -98,7 +98,7 @@ function SearchBar(props) {
         // queryResults.result = sortedResults1;
         // console.log(qr1);
         setQueryResults(qr1);
-        props.setDisplayData({});
+        props.setDisplayData({result: sortedResults1});
         setCount(1);
         // props.setDisplayData(qr1);
     }
@@ -112,10 +112,11 @@ function SearchBar(props) {
         queryResults.result = sortedResults;
         console.log(qr);
         setQueryResults(qr);
-        props.setDisplayData({});
+        props.setDisplayData({result: sortedResults});
         setCount(2);
         // props.setDisplayData(qr);
     }
+
 
     return (
         <div className="searchBar" data-testid="searchBar">
@@ -158,6 +159,7 @@ function SearchBar(props) {
                 placeholder="Location">
             </Select>
             <Select
+                styles={{width: "100px"}}
                 className="filter"
                 ref={(ref) => {
                     arr = [...arr, ref]
@@ -178,7 +180,7 @@ function SearchBar(props) {
                 placeholder="Commute time">
             </Select>
             <div className="buttonSection">
-                <button onClick={handleApply} className="button">Apply</button>
+                <button className="button" onClick={handleApply}>Apply</button>
                 <button className="button" onClick={handleClear}>Clear Filters</button>
                 <button className="button" onClick={sortByPriceDsc}>Sort By Price ↑</button>
                 <button className="button" onClick={sortByPriceAsc}>Sort By Price ↓</button>

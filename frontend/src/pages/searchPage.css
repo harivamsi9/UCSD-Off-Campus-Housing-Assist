@@ -6,6 +6,7 @@
     background-size: cover;
 }
 
+
 header {
     top: 0;
     left: 0;
@@ -25,7 +26,7 @@ header {
 }
 
 .empty {
-    height: 140vh;
+    height: 1250px;
 }
 
 
@@ -75,6 +76,7 @@ header {
     margin: 5px 15px;
 }
 
+
 .button:hover {
     background-color: #4095c6;
 }
@@ -84,4 +86,15 @@ header {
     flex-direction: row;
     width: 25%;
     margin: auto;
+}
+
+@media screen and (max-width: 1300px){
+    .button{
+        width: 110px;
+        font-size: 13px;
+    }
+
+    .navBar{
+        width: 30%;
+    }
 }

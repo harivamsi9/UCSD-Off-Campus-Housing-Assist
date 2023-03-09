@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // apartment component to show brief information
 function Apartment(props) {
     const data = props.data;
-
+    const queryResult = props.queryResult;
 
     return (
         <div className="apartment">
@@ -17,9 +17,9 @@ function Apartment(props) {
                 <div className="information">Location: {data.location}</div>
                 <div className="information">Price: {data.monthly_rent}</div>
                 <div className="information">Square feet of apartment: {data.sqft}</div>
-                <div className="information">Commute time to UCSD: {data.commute_time_to_ucsd}</div>
+                <div className="information">Commute time to UCSD: {data.commute_time_to_ucsd} minutes</div>
             </div>
-            <Link to="/detail" className="detailLink" state={{ data: data }}>
+            <Link to="/detail" className="detailLink" state={{ data: data, query: queryResult}}>
                 Details
             </Link>
         </div>

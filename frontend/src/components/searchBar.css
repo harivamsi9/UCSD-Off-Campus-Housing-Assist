@@ -14,10 +14,23 @@
     background-color: transparent;
 }
 
+
 .filter {
     width: 180px;
     text-align: left;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1300px){
+    .searchBar{
+        margin-top: 20px;
+        width: 160px;
+        padding: 7px;
+        font-size: 13px;
+    }
+    .filter{
+        width: 140px;
+    }
 }
 
 .buttonSection {

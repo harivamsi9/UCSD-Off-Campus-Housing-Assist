@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import React from 'react';
@@ -6,9 +6,10 @@ import './detailPage.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
-function DetailPage() {
+function DetailPage(props) {
     const location = useLocation();
     const data = location.state.data;
+    const queryResult = location.state.query;
 
     const handleTest = () => {
         console.log(data);
@@ -31,7 +32,7 @@ function DetailPage() {
                     <h3>Info</h3>
                     <div className="info">Address: {data.address}</div>
                     <div className="info">Website: {data.website}</div>
-                    <div className="info">Phone: {data.contact}</div>
+                    <div className="info">Contact: {data.contact}</div>
                 </div>
 
                 {/* <h3>Details of the apartment</h3>
@@ -41,18 +42,18 @@ function DetailPage() {
                 <div className="info">Phone: {data.contact}</div> */}
 
                 <div className="pastPrice">
-                    <h3>Previous Price</h3>
-                    {data.historicRent.length > 0 && data.historicRent.map((val, index) => {
+                    <h3>Previous Prices</h3>
+                    {data.historicRent.length > 0 ? data.historicRent.map((val, index) => {
                         return (
                             <p key={index}>Move In: {val.date_in}, Move Out: {val.date_out}, Rent: {val.monthly_rent}</p>
                         )
-                    })}
+                    }): <p>No previous prices for this apartment</p>}
                 </div>
                 <div className="review-title">
                     <h3>Reviews</h3>
                 </div>
                 <div className="reviews">
-                    {data.reviews.length > 0 && data.reviews.map((val, index) => {
+                    {data.reviews.length > 0 ? data.reviews.map((val, index) => {
                         return (
                             <div className="review" key={index}>
                                 <p>Rating: {val.rating}</p>
@@ -60,7 +61,7 @@ function DetailPage() {
                                 <p>Date: {val.date}</p>
                             </div>
                         )
-                    })}
+                    }) : <p>No reviews for this apartment</p>}
                 </div>
             </div>
 
