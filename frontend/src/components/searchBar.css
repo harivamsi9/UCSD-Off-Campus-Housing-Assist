@@ -5,7 +5,7 @@
     gap: 5px;
     font-size: 16px;
     padding: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
     position: absolute;
 
     top: 235px;
@@ -21,14 +21,15 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1300px){
-    .searchBar{
+@media screen and (max-width: 1300px) {
+    .searchBar {
         margin-top: 20px;
         width: 160px;
         padding: 7px;
         font-size: 13px;
     }
-    .filter{
+
+    .filter {
         width: 140px;
     }
 }

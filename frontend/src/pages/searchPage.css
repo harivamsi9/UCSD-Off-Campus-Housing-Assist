@@ -4,6 +4,7 @@
     overflow: hidden;
     background: url("../../public/images/Geisel_Library_2.jpg") no-repeat center;
     background-size: cover;
+    font-style: italic;
 }
 
 
@@ -17,6 +18,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+    font-style: normal;
 }
 
 .logo {
@@ -26,7 +28,7 @@ header {
 }
 
 .empty {
-    height: 1250px;
+    height: 1300px;
 }
 
 
@@ -74,6 +76,7 @@ header {
     border-color: transparent;
     cursor: pointer;
     margin: 5px 15px;
+    font-style: italic;
 }
 
 
@@ -88,13 +91,13 @@ header {
     margin: auto;
 }
 
-@media screen and (max-width: 1300px){
-    .button{
+@media screen and (max-width: 1300px) {
+    .button {
         width: 110px;
         font-size: 13px;
     }
 
-    .navBar{
+    .navBar {
         width: 30%;
     }
 }
