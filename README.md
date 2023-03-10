@@ -71,7 +71,8 @@ press a under the test runner to run all tests
 install react-router for switching between different pages
 
 >>>>>>> 1acb24583364e3c8f2401d9a65b97f4d105735db
-
+## Check All Documenation (Confluence):
+https://segroup15.atlassian.net/wiki/spaces/SE/pages/295175/Links+to+Important+Sections
 
 ## How to see work in previous sprints
 
