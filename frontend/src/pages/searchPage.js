@@ -3,6 +3,8 @@ import DisplaySection from '../components/displaySection';
 import './searchPage.css';
 import { useState } from 'react';
 import React from 'react';
+import { createContext } from 'react';
+export const Context = createContext();
 
 
 function SearchPage(props) {
@@ -37,27 +39,16 @@ function SearchPage(props) {
             {displayData ?
                 <div className="navBar">
                     <button className="button" onClick={handlePrev} disabled={page === 1}>Prev</button>
-                    <p>Page {page} of {totalPages}</p>
+                    <h3>Page {page} of {totalPages}</h3>
                     <button className="button" onClick={handleNext} disabled={page === totalPages}>Next</button>
                 </div> : <></>
             }
             <div className="contentPage">
                 <div className="empty"></div>
-                {/* <div>
-        <div>
-            <h1>UCSD House Finder</h1>
-            <h2>Use the left side filter section to choose your expectation of apartments</h2>
-            <div className="searchSection">
-                {displayData ?
-                    <div className="navBar">
-                        <button className="button" onClick={handlePrev} disabled={page === 1}>Prev</button>
-                        <p>Page {page} of {totalPages}</p>
-                        <button className="button" onClick={handleNext} disabled={page === totalPages}>Next</button>
-
-                    </div> : <></>} */}
-
-                <SearchBar setDisplayData={setDisplayData} />
-                <DisplaySection displayData={displayData} startIndex={startIndex} endIndex={endIndex} />
+                <Context.Provider value={{ displayData, setDisplayData }}>
+                    <SearchBar setDisplayData={setDisplayData} />
+                    <DisplaySection displayData={displayData} startIndex={startIndex} endIndex={endIndex} />
+                </Context.Provider>
             </div>
         </div>
     );

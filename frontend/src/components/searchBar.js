@@ -1,19 +1,21 @@
 import React from 'react'
 import Select from 'react-select'
 import { bedOptions, bathOptions, locationOptions, priceOptions, squareFeet, commuteTime } from '../data/constant';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { result } from '../data/constant';
 import './searchBar.css';
 import fetch_filter_results from "./fetchAPI/fetchapi";
+import { Context } from '../pages/searchPage';
 
 // Search Bar component containing a number of filters that are dropdown select with options
-function SearchBar(props) {
+function SearchBar() {
     const [queryResults, setQueryResults] = useState([]);
     const [json, setJson] = useState({});
     const [count, setCount] = useState([]);
+    const { displayData, setDisplayData } = useContext(Context);
 
     var arr = [];
-    
+
     const handleChangeBed = (selected) => {
         if (selected != null) {
             setJson({ ...json, bedroom: selected.value });
@@ -55,67 +57,44 @@ function SearchBar(props) {
             a.clearValue();
         })
         setJson({});
-        setQueryResults({})
-        props.setDisplayData({});
+        setQueryResults(6)
+        setDisplayData({});
     }
-    // var count = 0;
-    useEffect(() => {
-        console.log(queryResults)
-        props.setDisplayData(queryResults);
-        console.log("updated queryResults display")
-      }, [count]);
-    
+
     const handleApply = () => {
         // fetch_filter_results(json, props);
 
         fetch_filter_results(json)
-                .then(data => {
-                    // Do something with the data
-                    // filterData = data;
+            .then(data => {
+                // Do something with the data
+                // filterData = data;
 
-                    setQueryResults(data);
-                    setCount(0);
-                    // console.log(data)
-                    // localCache(filterData)
-                    // props.setDisplayData(data)
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.error(error)
-                })
-
-        // console.log(filterData)
-        // props.setDisplayData({ result })
+                setQueryResults(data);
+                setCount(0);
+                // console.log(data)
+                // localCache(filterData)
+                setDisplayData(data)
+            })
+            .catch(error => {
+                // Handle errors
+                console.error(error)
+            })
     }
 
-    const sortByPriceAsc = () => {
-        
-        // console.log(queryResults)
-        const sortedResults1 = [...queryResults.result].sort((a, b) => a.monthly_rent - b.monthly_rent);
-        // console.log(sortedResults1) 
-        var qr1 = queryResults
-        qr1.result = sortedResults1;
-        // queryResults.result = sortedResults1;
-        // console.log(qr1);
-        setQueryResults(qr1);
-        props.setDisplayData({});
-        setCount(1);
-        // props.setDisplayData(qr1);
+    const handleSort = (e) => {
+        if (displayData) {
+            if (e.target.innerHTML === "Sort By Price ↑") {
+                const sorted = [...displayData.result].sort((a, b) => b.monthly_rent - a.monthly_rent);
+                console.log(sorted);
+                setDisplayData({ result: sorted });
+            } else if (e.target.innerHTML === "Sort By Price ↓") {
+                const sorted = [...displayData.result].sort((a, b) => a.monthly_rent - b.monthly_rent);
+                console.log(sorted);
+                setDisplayData({ result: sorted });
+            }
+        }
     }
-    const sortByPriceDsc = () => {
-        // props.setDisplayData({});
-        console.log(queryResults)
-        const sortedResults = [...queryResults.result].sort((a, b) => b.monthly_rent - a.monthly_rent);
-        console.log(sortedResults) 
-        var qr = queryResults
-        qr.result = sortedResults;
-        queryResults.result = sortedResults;
-        console.log(qr);
-        setQueryResults(qr);
-        props.setDisplayData({});
-        setCount(2);
-        // props.setDisplayData(qr);
-    }
+
 
     return (
         <div className="searchBar" data-testid="searchBar">
@@ -158,6 +137,7 @@ function SearchBar(props) {
                 placeholder="Location">
             </Select>
             <Select
+                styles={{ width: "100px" }}
                 className="filter"
                 ref={(ref) => {
                     arr = [...arr, ref]
@@ -178,10 +158,10 @@ function SearchBar(props) {
                 placeholder="Commute time">
             </Select>
             <div className="buttonSection">
-                <button onClick={handleApply} className="button">Apply</button>
+                <button className="button" onClick={handleApply}>Apply</button>
                 <button className="button" onClick={handleClear}>Clear Filters</button>
-                <button className="button" onClick={sortByPriceDsc}>Sort By Price ↑</button>
-                <button className="button" onClick={sortByPriceAsc}>Sort By Price ↓</button>
+                <button className="button" onClick={handleSort}>Sort By Price ↑</button>
+                <button className="button" onClick={handleSort}>Sort By Price ↓</button>
             </div>
         </div>
     );

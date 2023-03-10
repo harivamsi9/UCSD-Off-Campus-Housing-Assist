@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<SearchPage displayData={displayData} setDisplayData={setDisplayData} />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail" element={<DetailPage setDisplayData={setDisplayData}/>} />
       </Routes>
     </div>
   );
